@@ -12,5 +12,14 @@
 碧水浩浩云茫茫，美人不来空断肠。
 
 预拂青山一片石，与君连日醉壶觞。</p>
+<script>
+const para = document.querySelector("h1");
+
+para.addEventListener("click", updateName);
+
+function updateName() {
+  const name = prompt("Enter a new name");
+  para.textContent = `Player 1: ${name}`;
+</script>
 </body>
 </html>
