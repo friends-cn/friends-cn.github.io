@@ -1,8 +1,11 @@
 H1 {
+  margin:auto;
+  width:50%;
   color: red;
   font-size: 36px;
   font-weight: bold;
   padding: 50px;
+  
 }
 p{
   font-size:26px;
