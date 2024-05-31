@@ -1,0 +1,2140 @@
+    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <link rel="canonical" href="https://blog.csdn.net/zengliguang/article/details/132700728"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="report" content='{"pid": "blog", "spm":"1001.2101"}'>
+    <meta name="referrer" content="always">
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <meta name="applicable-device" content="pc">
+    <link  href="https://g.csdnimg.cn/static/logo/favicon32.ico"  rel="shortcut icon" type="image/x-icon" />
+    <title>windows系统一键开启防火墙并设置开放规则_防火墙规则一键-CSDN博客</title>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=VcKqTz7mvez2N4EhVuu-UFOBV3P3aCSWeuMAbA3suu54gwUrILthCloKav64cpvVjXorEDVdTHHReOUin3XtcZiD31p6a48y-EJtV17ccF4" charset="UTF-8"></script><script>
+      (function(){ 
+        var el = document.createElement("script"); 
+        el.src = "https://s3a.pstatp.com/toutiao/push.js?1abfa13dfe74d72d41d83c86d240de427e7cac50c51ead53b2e79d40c7952a23ed7716d05b4a0f683a653eab3e214672511de2457e74e99286eb2c33f4428830"; 
+        el.id = "ttzz"; 
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(el, s);
+      })(window)
+    </script>
+        <meta name="keywords" content="防火墙规则一键">
+        <meta name="csdn-baidu-search"  content='{"autorun":true,"install":true,"keyword":"防火墙规则一键"}'>
+    <meta name="description" content="文章浏览阅读258次。在电脑任意位置新建一个bat脚本，比如我创建的是fire.bat。大家都可以通过自己的方式去进行验证。拷贝上面的脚本到这个bat文件中。双击执行等待执行完成即可。_防火墙规则一键">
+        <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/css/detail_enter-708a1ddded.min.css">
+    <style>
+        #content_views pre{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none; 
+            user-select: none; 
+        }
+        #content_views pre code{
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none; 
+            user-select: none; 
+        }
+    </style>
+    <script type="application/ld+json">{"@context":"https://ziyuan.baidu.com/contexts/cambrian.jsonld","@id":"https://blog.csdn.net/zengliguang/article/details/132700728","appid":"1638831770136827","pubDate":"2023-09-05T21:21:50","title":"windows系统一键开启防火墙并设置开放规则_防火墙规则一键-CSDN博客","upDate":"2023-09-05T21:24:13"}</script>
+        <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/release/blogv2/dist/pc/themesSkin/skin3-template/skin3-template-762f7595fd.min.css">
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var isCorporate = false;
+        var username =  "zengliguang";
+        var skinImg = "white";
+
+        var blog_address = "https://blog.csdn.net/zengliguang";
+        var currentUserName = "";
+        var isOwner = false;
+        var loginUrl = "http://passport.csdn.net/account/login?from=https://blog.csdn.net/zengliguang/article/details/132700728";
+        var blogUrl = "https://blog.csdn.net/";
+        var avatar = "https://profile-avatar.csdnimg.cn/f94dac73b6ef4008810d0c01c6405082_zengliguang.jpg!1";
+        var articleTitle = "windows系统一键开启防火墙并设置开放规则";
+        var articleDesc = "文章浏览阅读258次。在电脑任意位置新建一个bat脚本，比如我创建的是fire.bat。大家都可以通过自己的方式去进行验证。拷贝上面的脚本到这个bat文件中。双击执行等待执行完成即可。_防火墙规则一键";
+        var articleTitles = "windows系统一键开启防火墙并设置开放规则_防火墙规则一键-CSDN博客";
+        var nickName = "三希";
+        var articleDetailUrl = "https://blog.csdn.net/zengliguang/article/details/132700728";
+        var vipUrlV = "https://mall.csdn.net/vip?vipSource=learningVip";
+        if(window.location.host.split('.').length == 3) {
+            blog_address = blogUrl + username;
+        }
+        var skinStatus = "White";
+        var robotModule = '';
+        var robotModuleJs = "https://cdn-static-devbit.csdn.net/ai100/chat/chat-search.js?v=1";
+        var robotTryResult = "exp1"
+        var blogStaticHost = "https://csdnimg.cn/release/blogv2/"
+        var mallTestStyle = "control"
+          var payColumn = false
+    </script>
+        <meta name="toolbar" content='{"type":"0","fixModel":"1"}'>
+    <script src="https://g.csdnimg.cn/??fixed-sidebar/1.1.7/fixed-sidebar.js" type="text/javascript"></script>
+    <script src='//g.csdnimg.cn/common/csdn-report/report.js' type='text/javascript'></script>
+    <link rel="stylesheet" type="text/css" href="https://csdnimg.cn/public/sandalstrap/1.4/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+    <script src="https://dup.baidustatic.com/js/ds.js"></script>
+      <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "lgtpix6r85");
+      </script>
+    <script src="/static/js/waf_captcha_embedded_d2FmX2NhcH.js"></script>
+</head>
+  <body class="nodata " style="">
+    <div id="toolbarBox" style="min-height: 48px;"></div>
+        <script>
+            var toolbarSearchExt = '{"landingWord":["防火墙规则一键"],"queryWord":"","tag":["windows"],"title":"windows系统一键开启防火墙并设置开放规则"}';
+        </script>
+    <script src="https://g.csdnimg.cn/common/csdn-toolbar/csdn-toolbar.js" type="text/javascript"></script>
+    <script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+
+    <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/pc/css/blog_code-01256533b5.min.css">
+    <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/chart-3456820cac.css" />
+    <link rel="stylesheet" href="https://g.csdnimg.cn/lib/swiper/6.0.4/css/swiper.css" />
+    <script src="https://g.csdnimg.cn/lib/swiper/6.0.4/js/swiper.js" async></script>
+    <script>
+      var articleId = 132700728;
+      var commentscount = 0;
+      var commentAuth = 2;
+      var curentUrl = "https://blog.csdn.net/zengliguang/article/details/132700728";
+      var myUrl = "https://my.csdn.net/";
+        var highlight = ["windows","防火墙","设置","开启","规则","开放","系统","键"];//高亮数组
+        var isRecommendModule = true;
+          var isBaiduPre = true;
+          var baiduCount = 2;
+          var setBaiduJsCount = 10;
+          var viewCountFormat = 258;
+      var share_card_url = "https://app-blog.csdn.net/share?article_id=132700728&username=zengliguang"
+      var mallVipUrl = "https://mall.csdn.net/vip?vipSource=article"
+      var vipArticleAbStyle = "t_1"
+
+      var vipArticleCpStyle = "t_1"
+      var articleType = 1;
+      var baiduKey = "防火墙规则一键";
+      var copyPopSwitch = true;
+      var needInsertBaidu = true;
+      var recommendRegularDomainArr = ["blog.csdn.net/.+/article/details/","download.csdn.net/download/","edu.csdn.net/course/detail/","ask.csdn.net/questions/","bbs.csdn.net/topics/","www.csdn.net/gather_.+/"]
+      var codeStyle = "";
+      var baiduSearchType = "baidulandingword";
+      var sharData = "{\"hot\":[{\"id\":1,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/a5f4260710904e538002a6ab337939b3.png\"},{\"id\":2,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/188b37199a2c4b74b1d9ffc39e0d52de.png\"},{\"id\":3,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/14ded358b631444581edd98a256bc5af.png\"},{\"id\":4,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/1470f23a770444d986ad551b9c33c5be.png\"},{\"id\":5,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/c329f5181dc74f6c9bd28c982bb9f91d.png\"},{\"id\":6,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/ccd8a3305e81460f9c505c95b432a65f.png\"},{\"id\":7,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/bc89d8283389440d97fc4d30e30f45e1.png\"},{\"id\":8,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/452d485b4a654f5592390550d2445edf.png\"},{\"id\":9,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/f8b9939db2ed474a8f43a643015fc8b7.png\"},{\"id\":10,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/6de8864187ab4ed3b1db0856369c36ff.png\"},{\"id\":11,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/673cc3470ff74072acba958dc0c46e2d.png\"},{\"id\":12,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/930c119760ac4491804db80f9c6d4e3f.png\"},{\"id\":13,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/15e6befb05a24233bc2b65e96aa8d972.png\"},{\"id\":14,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/2075fd6822184b95a41e214de4daec13.png\"},{\"id\":15,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/859b1552db244eb6891a809263a5c657.png\"},{\"id\":16,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/0be2f920f1f74290a98921974a9613fd.png\"},{\"id\":17,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/2e97e00b43f14afab494ea55ef3f4a6e.png\"},{\"id\":18,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/ff4ab252f46e444686f5135d6ebbfec0.png\"},{\"id\":19,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/ae029bbe99564e79911657912d36524f.png\"},{\"id\":20,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/b3ece39963de440388728e9e7b9bf427.png\"},{\"id\":21,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/6f14651a99ba486e926d63b6fa692997.png\"},{\"id\":22,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/83ceddf050084875a341e32dcceca721.png\"},{\"id\":23,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/b90368b8fd5d4c6c8c79a707d877cf7c.png\"},{\"id\":24,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/aeffae14ecf14e079b2616528c9a393b.png\"},{\"id\":25,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/c5a06b5a13d44d16bed868fc3384897a.png\"},{\"id\":26,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/08b697658b844b318cea3b119e9541ef.png\"},{\"id\":27,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/68ccb0b8d09346ac961d2b5c1a8c77bf.png\"},{\"id\":28,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/a2227a247e37418cbe0ea972ba6a859b.png\"},{\"id\":29,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/3a42825fede748f9993e5bb844ad350d.png\"},{\"id\":30,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/8882abc1dd484224b636966ea38555c3.png\"},{\"id\":31,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/4f6a5f636a3e444d83cf8cc06d87a159.png\"},{\"id\":32,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/1953ef79c56b4407b78d7181bdff11c3.png\"},{\"id\":33,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/c04a2a4f772948ed85b5b0380ed36287.png\"},{\"id\":34,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/5b4fecd05091405ea04d8c0f53e9f2c7.png\"},{\"id\":35,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/b89f576d700344e280d6ceb2a66c2420.png\"},{\"id\":36,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/1c65780e11804bbd9971ebadb3d78bcf.png\"},{\"id\":37,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/d590db2055f345db9706eb68a7ec151a.png\"},{\"id\":38,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/fe602f80700b4f6fb3c4a9e4c135510e.png\"},{\"id\":39,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/39ff2fcd31e04feba301a071976a0ba7.png\"},{\"id\":40,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/f9b61b3d113f436b828631837f89fb39.png\"},{\"id\":41,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/df1aca5f610c4ad48cd16da88c9c8499.png\"},{\"id\":42,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/d7acf73a1e6b41399a77a85040e10961.png\"},{\"id\":43,\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/b7f1b63542524b97962ff649ab4e7e23.png\"}],\"vip\":[{\"id\":1,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101150.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101154.png\"},{\"id\":2,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101204.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101208.png\"},{\"id\":3,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101211.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101215.png\"},{\"id\":4,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101218.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101220.png\"},{\"id\":5,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101223.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220920101226.png\"},{\"id\":6,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100635.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100639.png\"},{\"id\":7,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100642.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100644.png\"},{\"id\":8,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100647.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100649.png\"},{\"id\":9,\"vipUrl\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100652.png\",\"url\":\"https:\\/\\/img-home.csdnimg.cn\\/images\\/20220922100655.png\"},{\"id\":10,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/55de67481fde4b04b97ad78f11fe369a.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/bb2418fb537e4d78b10d8765ccd810c5.png\"},{\"id\":11,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/579c713394584d128104ef1044023954.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/f420d9fbcf5548079d31b5e809b6d6cd.png\"},{\"id\":12,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/75b7f3155ba642f5a4cc16b7baf44122.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/a9030f5877be401f8b340b80b0d91e64.png\"},{\"id\":13,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/0903d33cafa54934be3780aa54ae958d.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/2cd8c8929f5a42fca5da2a0aeb456203.png\"},{\"id\":14,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/949fd7c22884439fbfc3c0e9c3b8dee7.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/dafbea9bd9eb4f3b962b48dc41657f89.png\"},{\"id\":15,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/4119cfddd71d4e6a8a27a18dbb74d90e.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/c56310c8b6384d9e85388e4e342ce508.png\"},{\"id\":16,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/121575274da142bcbbbbc2e8243dd411.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/5013993de06542f881018bb9abe2edf7.png\"},{\"id\":17,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/4d97aa6dd4fe4f09a6bef5bdf8a6abcd.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/76f23877b6ad4066ad45ce8e31b4b977.png\"},{\"id\":18,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/fdb619daf21b4c829de63b9ebc78859d.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/a1abe5d27a5441f599adfe662f510243.png\"},{\"id\":19,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/676b7707bb11410f8f56bc0ed2b2345c.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/7ac5b467fbf24e1d8c2de3f3332c4f54.png\"},{\"id\":20,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/0becb8cc227e4723b765bdd69a20fd4a.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/fdec85b26091486b9a89d0b8d45c3749.png\"},{\"id\":21,\"vipUrl\":\"https:\\/\\/img-blog.csdnimg.cn\\/1a6c06235ad44941b38c54cbc25a370c.png\",\"url\":\"https:\\/\\/img-blog.csdnimg.cn\\/410a06cda2d44b0c84578f88275caf70.png\"}],\"map\":{\"hot\":\"热门\",\"vip\":\"VIP\"}}";
+      
+      var canRead = true;
+      var blogMoveHomeArticle = false;
+      var showSearchText = "";
+      var articleSource = 1;
+      var articleReport = '{"pid": "blog", "spm":"1001.2101"}';
+        var baiduSearchChannel = 'pc_relevant'
+        var baiduSearchIdentification = '.235^v43^control'
+        var distRequestId = '1717151404473_25193'
+        var initRewardObject = {
+          giver: currentUserName,
+          anchor: username,
+          articleId: articleId,
+          sign: ''
+        }
+        var isLikeStatus = false;
+        var isUnLikeStatus = false;
+        var studyLearnWord = "";
+        var unUseCount = 0;
+        var codeMaxSize = 0;
+        var overCost = true;
+        var isCurrentUserVip = false;
+        var contentViewsHeight = 0;
+        var contentViewsCount = 0;
+        var contentViewsCountLimit = 5;
+        var isShowConcision = false;
+      var isCookieConcision = false
+      var isHasDirectoryModel = false
+      var isShowSideModel = false
+      var isShowDirectoryModel = true
+      function getCookieConcision(sName){
+        var allCookie = document.cookie.split("; ");
+        for (var i=0; i < allCookie.length; i++){
+          var aCrumb = allCookie[i].split("=");
+          if (sName == aCrumb[0])
+            return aCrumb[1];
+        }
+        return null;
+      }
+      if (getCookieConcision('blog_details_concision') && getCookieConcision('blog_details_concision') == 0){
+        isCookieConcision = true
+        isShowSideModel = true
+        isShowDirectoryModel = false
+      }
+    </script>
+        <div class="main_father clearfix d-flex justify-content-center " style="height:100%;">
+          <div class="container clearfix " id="mainBox">
+          <script>
+          if (!isCookieConcision) {
+            $('.main_father').removeClass('mainfather-concision')
+            $('.main_father .container').removeClass('container-concision')
+          } else {
+            $('#mainBox').css('margin-right', '0')
+          }
+          </script>
+          <main>
+<script type="text/javascript">
+    var resourceId =  "";
+    function getQueryString(name) {   
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象  
+      var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+      if( r != null ) return decodeURIComponent( r[2] ); return '';   
+    }
+    function stripscript(s){ 
+      var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%]") 
+      var rs = ""; 
+      for (var i = 0; i < s.length; i++) { 
+        rs = rs+s.substr(i, 1).replace(pattern, ''); 
+      } 
+      return rs;
+    }
+    var blogHotWords = stripscript(getQueryString('utm_term')).length > 1 ? stripscript(getQueryString('utm_term')) : ''
+</script>
+<div class="blog-content-box">
+    <div class="article-header-box">
+        <div class="article-header">
+            <div class="article-title-box">
+                <h1 class="title-article" id="articleContentId">windows系统一键开启防火墙并设置开放规则</h1>
+            </div>
+            <div class="article-info-box">
+                <div class="article-bar-top">
+                    <img class="article-type-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/original.png" alt="">
+                    <div class="bar-content">
+                      <a class="follow-nickName " href="https://blog.csdn.net/zengliguang" target="_blank" rel="noopener" title="三希">三希</a>
+                    <img class="article-time-img article-heard-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newUpTime2.png" alt="">
+                    <span class="time">已于&nbsp;2023-10-13 09:01:02&nbsp;修改</span>
+                   <div class="read-count-box">
+                      <img class="article-read-img article-heard-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/articleReadEyes2.png" alt="">
+                      <span class="read-count">阅读量258</span>
+                      <a id="blog_detail_zk_collection" class="un-collection" data-report-click='{"mod":"popu_823","spm":"1001.2101.3001.4232","ab":"new"}'>
+                          <img class="article-collect-img article-heard-img un-collect-status isdefault" style="display:inline-block" src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollect2.png" alt="">
+                          <img class="article-collect-img article-heard-img collect-status isactive" style="display:none" src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive2.png" alt="">
+                          <span class="name">收藏</span>
+                          <span class="get-collection">
+                          </span>
+                      </a>
+                      <div class="read-count-box is-like">
+                        <img class="article-read-img article-heard-img" style="display:none" id="is-like-imgactive-new" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Active.png" alt="">
+                        <img class="article-read-img article-heard-img" style="display:block" id="is-like-img-new" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2023Black.png" alt="">
+                        <span class="read-count" id="blog-digg-num">点赞数
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="blog-tags-box">
+                    <div class="tags-box artic-tag-box">
+                            <span class="label">文章标签：</span>
+                                <a rel="nofollow" data-report-click='{"mod":"popu_626","spm":"1001.2101.3001.4223","strategy":"windows","ab":"new","extra":"{\"searchword\":\"windows\"}"}' class="tag-link" href="https://so.csdn.net/so/search/s.do?q=windows&amp;t=all&amp;o=vip&amp;s=&amp;l=&amp;f=&amp;viparticle=" target="_blank" rel="noopener">windows</a>
+                    </div>
+                </div>
+                <div class="up-time"><span>于&nbsp;2023-09-05 21:24:13&nbsp;首次发布</span></div>
+                <div class="slide-content-box">
+                    <div class="article-copyright">
+                        <div class="creativecommons">
+                            版权声明：本文为博主原创文章，遵循<a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener"> CC 4.0 BY-SA </a>版权协议，转载请附上原文出处链接和本声明。
+                        </div>
+                        <div class="article-source-link">
+                            本文链接：<a href="https://blog.csdn.net/zengliguang/article/details/132700728" target="_blank">https://blog.csdn.net/zengliguang/article/details/132700728</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="operating">
+                    <a class="href-article-edit slide-toggle">版权</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="blogHuaweiyunAdvert"></div>
+    <article class="baidu_pl">
+        <div id="article_content" class="article_content clearfix">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/kdoc_html_views-1a98987dfd.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/blogv2/dist/mdeditor/css/editerView/ck_htmledit_views-044f2cf1dc.css">
+                <div id="content_views" class="htmledit_views">
+                    <h2><strong>脚本</strong></h2> 
+<pre><code>&#64;echo off
+&#64;REM 设置开放端口&#xff0c;上下行
+set PORT&#61;1433-1488,33,44
+
+&#64;REM 关闭防火墙
+netsh advfirewall set allprofiles state off
+&#64;REM 打开防火墙
+netsh advfirewall set allprofiles state on
+
+
+
+rem 设置指定端口变量和出入站规则名称
+set INPUT_RULE_NAME&#61;ZLG-IN
+set OUT_RULE_NAME&#61;ZLG-OUT
+
+
+rem 创建入站规则
+echo Input Rule
+netsh advfirewall firewall show rule name&#61;%INPUT_RULE_NAME% &gt;nul
+rem 如果已经存在则先删除
+if not ERRORLEVEL 1 (
+    netsh advfirewall firewall delete rule name&#61;%INPUT_RULE_NAME% &gt;nul
+) 
+netsh advfirewall firewall add rule name&#61;%INPUT_RULE_NAME% dir&#61;in action&#61;allow protocol&#61;TCP localport&#61;%PORT%
+echo %INPUT_RULE_NAME% Create Successed!
+
+
+rem 创建出站规则
+echo Output Rule
+netsh advfirewall firewall show rule name&#61;%OUT_RULE_NAME% &gt;nul
+rem 如果已经存在则先删除
+if not ERRORLEVEL 1 (
+   netsh advfirewall firewall delete rule name&#61;%OUT_RULE_NAME% &gt;nul
+) 
+netsh advfirewall firewall add rule name&#61;%OUT_RULE_NAME% dir&#61;out action&#61;allow protocol&#61;TCP localport&#61;%PORT%
+echo %OUT_RULE_NAME% Create Successed!
+
+&#64;REM 限制远程ip进行访问&#xff1a;remoteip修改为实际的ip地址
+netsh advfirewall firewall add rule name&#61;&#34;disabledIP&#34; dir&#61;in action&#61;block remoteip&#61;&#34;1.1.1.1,2.2.2.2,3.3.3.3&#34;
+
+echo Done!
+
+
+</code></pre> 
+<h2>使用</h2> 
+<p>在电脑任意位置新建一个bat脚本&#xff0c;比如我创建的是fire.bat</p> 
+<p><img alt="" height="69" src="https://img-blog.csdnimg.cn/bb2cdb3c80ca49eb8bc7ac05b285298e.png" width="220" /></p> 
+<p>拷贝上面的脚本到这个bat文件中</p> 
+<p><img alt="" height="591" src="https://img-blog.csdnimg.cn/cb93fbb282e44b7ba020e0bab286b8de.png" width="968" /></p> 
+<p>双击执行等待执行完成即可</p> 
+<p>大家都可以通过自己的方式去进行验证</p> 
+<p></p> 
+<p></p>
+                </div>
+        </div>
+        <div id="treeSkill"></div>
+    </article>
+<script>
+  $(function() {
+    setTimeout(function () {
+      var mathcodeList = document.querySelectorAll('.htmledit_views img.mathcode');
+      if (mathcodeList.length > 0) {
+        for (let i = 0; i < mathcodeList.length; i++) {
+          if (mathcodeList[i].naturalWidth === 0 || mathcodeList[i].naturalHeight === 0) {
+            var alt = mathcodeList[i].alt;
+            alt = '\\(' + alt + '\\)';
+            var curSpan = $('<span class="img-codecogs"></span>');
+            curSpan.text(alt);
+            $(mathcodeList[i]).before(curSpan);
+            $(mathcodeList[i]).remove();
+          }
+        }
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+      }
+    }, 1000)
+  });
+</script>
+</div>
+<div class="directory-boxshadow-dialog" style="display:none;">
+  <div class="directory-boxshadow-dialog-box">
+  </div>
+  <div class="vip-limited-time-offer-box">
+    <div class="vip-limited-time-offer-content">
+      <img class="limited-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/vip-limited-close.png">
+      <div class="limited-box">
+        <span class="limited-num"></span>
+        <span class="limited-quan"> 优惠劵</span>
+      </div>
+      <div class="limited-time-box">
+        <span class="time-hour"></span>
+        <span class="time-minite"></span>
+        <span class="time-second"></span>
+      </div>
+      <a class="limited-time-btn" href="https://mall.csdn.net/vip" data-report-click='{"spm":"1001.2101.3001.9621"}' data-report-query='spm=1001.2101.3001.9621'></a>
+    </div>
+  </div>
+</div>    <div class="more-toolbox-new" id="toolBarBox">
+      <div class="left-toolbox">
+        <div class="toolbox-left">
+            <div class="profile-box">
+              <a class="profile-href" target="_blank" href="https://blog.csdn.net/zengliguang"><img class="profile-img" src="https://profile-avatar.csdnimg.cn/f94dac73b6ef4008810d0c01c6405082_zengliguang.jpg!1">
+                <span class="profile-name">
+                  三希
+                </span>
+              </a>
+            </div>
+            <div class="profile-attend">
+                <a class="tool-attend tool-bt-button tool-bt-attend" href="javascript:;" data-report-view='{"mod":"1592215036_002","spm":"1001.2101.3001.4232","extend1":"关注"}'>关注</a>
+              <a class="tool-item-follow active-animation" style="display:none;">关注</a>
+            </div>
+        </div>
+        <div class="toolbox-middle">
+          <ul class="toolbox-list">
+            <li class="tool-item tool-item-size tool-active is-like" id="is-like">
+              <a class="tool-item-href">
+                <img style="display:none;" id="is-like-imgactive-animation-like" class="animation-dom active-animation" src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarThumbUpactive.png" alt="">
+                <img class="isactive" style="display:none" id="is-like-imgactive" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2021Active.png" alt="">
+                <img class="isdefault" style="display:block" id="is-like-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newHeart2021Black.png" alt="">
+                <span id="spanCount" class="count ">
+                      0
+                </span>
+              </a>
+              <div class="tool-hover-tip"><span class="text space">点赞</span></div>
+            </li>
+            <li class="tool-item tool-item-size tool-active is-unlike" id="is-unlike">
+              <a class="tool-item-href">
+                <img class="isactive" style="margin-right:0px;display:none" id="is-unlike-imgactive" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newUnHeart2021Active.png" alt="">
+                <img class="isdefault" style="margin-right:0px;display:block" id="is-unlike-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newUnHeart2021Black.png" alt="">
+                <span id="unlikeCount" class="count "></span>
+              </a>
+              <div class="tool-hover-tip"><span class="text space">踩</span></div>
+            </li>
+            <li class="tool-item tool-item-size tool-active is-collection ">
+              <a class="tool-item-href" href="javascript:;" data-report-click='{"mod":"popu_824","spm":"1001.2101.3001.4130","ab":"new"}'>
+                <img style="display:none" id="is-collection-img-collection" class="animation-dom active-animation" src="https://csdnimg.cn/release/blogv2/dist/pc/img/tobarCollectionActive.png" alt="">
+                <img class="isdefault" id="is-collection-img" style="display:block" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCollectBlack.png" alt="">
+                <img class="isactive" id="is-collection-imgactive" style="display:none" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newCollectActive.png" alt="">
+                <span class="count get-collection " data-num="0" id="get-collection">
+                    0
+                </span>
+              </a>
+              <div class="tool-hover-tip collect">
+                <div class="collect-operate-box">
+                  <span class="collect-text" id="is-collection">
+                    收藏
+                  </span>
+                </div>
+              </div>
+              <div class="tool-active-list">
+                <div class="text">
+                  觉得还不错?
+                  <span class="collect-text" id="tool-active-list-collection">
+                    一键收藏
+                  </span>
+                 <img id="tool-active-list-close" src="https://csdnimg.cn/release/blogv2/dist/pc/img/collectionCloseWhite.png" alt="">
+                </div>
+              </div>
+            </li>
+                <li class="tool-item tool-item-size tool-active tool-item-reward">
+                  <a class="tool-item-href" href="javascript:;" data-report-click='{"mod":"popu_830","spm":"1001.2101.3001.4237","dest":"","ab":"new"}'>
+                    <img class="isdefault reward-bt" id="rewardBtNew" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newRewardBlack.png" alt="打赏">
+                    <span class="count"></span>
+                  </a>
+                  <div class="tool-hover-tip"><span class="text space">打赏</span></div>
+                </li>
+          <li class="tool-item tool-item-size tool-active tool-item-comment">
+            <div class="guide-rr-first">
+              <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/guideRedReward01.png" alt="">
+              <button class="btn-guide-known">知道了</button>
+            </div>
+              <a class="tool-item-href" href="#commentBox" data-report-click='{"spm":"1001.2101.3001.7009"}'>
+              <img class="isdefault" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newComment2021Black.png" alt="">
+              <span class="count">
+                    0
+              </span>
+            </a>
+            <div class="tool-hover-tip"><span class="text space">评论</span></div>
+          </li>
+          <li class="tool-item tool-item-bar">
+          </li>
+          <li class="tool-item tool-item-size tool-active tool-QRcode" data-type="article" id="tool-share">
+            <a class="tool-item-href" href="javascript:;" data-report-click='{"mod":"1582594662_002","spm":"1001.2101.3001.4129","ab":"new"}'>
+              <img class="isdefault" src="https://csdnimg.cn/release/blogv2/dist/pc/img/newShareBlack.png" alt="">
+            </a>
+              <div class="QRcode" id="tool-QRcode">
+            <div class="share-bg-icon icon1" id="shareBgIcon"></div>
+              <div class="share-bg-box">
+                <div class="share-content">
+                    <img class="share-avatar" src="https://profile-avatar.csdnimg.cn/f94dac73b6ef4008810d0c01c6405082_zengliguang.jpg!1" alt="">
+                  <div class="share-tit">
+                    windows系统一键开启防火墙并设置开放规则
+                  </div>
+                  <div class="share-dec">
+                    在电脑任意位置新建一个bat脚本，比如我创建的是fire.bat。大家都可以通过自己的方式去进行验证。拷贝上面的脚本到这个bat文件中。双击执行等待执行完成即可。
+                  </div>
+                  <a id="copyPosterUrl" class="url" data-report-click='{"spm":"1001.2101.3001.7493"}' data-report-view='{"spm":"1001.2101.3001.7493"}'>复制链接</a>
+                </div>
+                <div class="share-code">
+                  <div class="share-code-box" id='shareCode'></div>
+                  <div class="share-code-text">扫一扫</div>
+                </div>
+              </div>
+                <div class="share-code-type">
+                </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="toolbox-right">
+</div>
+</div>
+</div>
+<script type=text/javascript crossorigin src="https://csdnimg.cn/release/phoenix/production/qrcode-7c90a92189.min.js"></script>
+<script src="//g.csdnimg.cn/??sharewx/1.2.1/sharewx.js" type="text/javascript"></script>
+<script type="text/javascript" crossorigin src="https://g.csdnimg.cn/common/csdn-login-box/csdn-login-box.js"></script>
+<script type="text/javascript" crossorigin src="https://g.csdnimg.cn/collection-box/2.1.2/collection-box.js"></script>                <div class="first-recommend-box recommend-box ">
+<div class="recommend-item-box type_download clearfix" data-url="https://download.csdn.net/download/qq_34910341/88272592"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6661.1","mod":"popu_871","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant_t0.none-task-download-2~default~CTRLIST~Paid-1-88272592-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Paid","dest":"https://download.csdn.net/download/qq_34910341/88272592"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://download.csdn.net/download/qq_34910341/88272592" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6661.1","mod":"popu_871","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant_t0.none-task-download-2~default~CTRLIST~Paid-1-88272592-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Paid","dest":"https://download.csdn.net/download/qq_34910341/88272592"}'  data-report-query='spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-88272592-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-88272592-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>Windows</em><em>系统</em>一<em>键</em>删除ADC盘空目录工具.zip</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">08-30</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://download.csdn.net/download/qq_34910341/88272592" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6661.1","mod":"popu_871","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant_t0.none-task-download-2~default~CTRLIST~Paid-1-88272592-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Paid","dest":"https://download.csdn.net/download/qq_34910341/88272592"}'  data-report-query='spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-88272592-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant_t0.none-task-download-2%7Edefault%7ECTRLIST%7EPaid-1-88272592-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1"><em>Windows</em><em>系统</em>一<em>键</em>删除ADC盘空目录工具.zip含下载地址可存云盘</div>
+			</a>
+		</div>
+	</div>
+</div>
+                </div>
+              <script src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_commontools-094b8ec121.min.js" type="text/javascript" async></script>
+                <div class="second-recommend-box recommend-box ">
+<div class="recommend-item-box type_download clearfix" data-url="https://download.csdn.net/download/osean_li/10969775"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-1-10969775-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/osean_li/10969775"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://download.csdn.net/download/osean_li/10969775" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-1-10969775-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/osean_li/10969775"}'  data-report-query='spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-1-10969775-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-1-10969775-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">一<em>键</em><em>开启</em>关闭<em>Windows</em> Defender</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">02-22</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://download.csdn.net/download/osean_li/10969775" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.1","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-1-10969775-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"1","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/osean_li/10969775"}'  data-report-query='spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-1-10969775-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-1-10969775-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">由于<em>Windows</em>的<em>防火墙</em>，经常会和谐掉我们开发的文件，这是一款关闭<em>防火墙</em>的执行文件，适用于搭建开发环境。</div>
+			</a>
+		</div>
+	</div>
+</div>
+                </div>
+<a id="commentBox" name="commentBox"></a>
+  <div id="pcCommentBox" class="comment-box comment-box-new2 unlogin-comment-box-new" style="display:none">
+      <div class="unlogin-comment-model">
+          <span class="unlogin-comment-tit">参与评论</span>
+        <span class="unlogin-comment-text">您还未登录，请先</span>
+        <span class="unlogin-comment-bt">登录</span>
+        <span class="unlogin-comment-text">后发表或查看评论</span>
+      </div>
+  </div>
+              <div class="recommend-box insert-baidu-box recommend-box-style ">
+                <div class="recommend-item-box no-index" style="display:none"></div>
+<div class="recommend-item-box type_download clearfix" data-url="https://download.csdn.net/download/qq_39095068/88269546"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.2","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-2-88269546-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"2","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/qq_39095068/88269546"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://download.csdn.net/download/qq_39095068/88269546" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.2","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-2-88269546-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"2","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/qq_39095068/88269546"}'  data-report-query='spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-2-88269546-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-2-88269546-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">一<em>键</em>关闭<em>防火墙</em> ，双击运行一<em>键</em>彻底关闭（<em>Windows</em><em>系统</em>）</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">08-29</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://download.csdn.net/download/qq_39095068/88269546" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.2","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~CTRLIST~Rate-2-88269546-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"2","strategy":"2~default~CTRLIST~Rate","dest":"https://download.csdn.net/download/qq_39095068/88269546"}'  data-report-query='spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-2-88269546-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7ECTRLIST%7ERate-2-88269546-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">一<em>键</em>关闭<em>防火墙</em> ，双击运行一<em>键</em>彻底关闭</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/weixin_33978044/article/details/85101768"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.3","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-85101768-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"3","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_33978044/article/details/85101768"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/weixin_33978044/article/details/85101768" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.3","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-85101768-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"3","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_33978044/article/details/85101768"}'  data-report-query='spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-85101768-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-85101768-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>windows</em>2008---批处理如何实现定时<em>开启</em>和关闭<em>防火墙</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/weixin_33978044" target="_blank"><span class="blog-title">weixin_33978044的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">01-27</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					1262
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/weixin_33978044/article/details/85101768" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.3","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-85101768-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"3","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_33978044/article/details/85101768"}'  data-report-query='spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-85101768-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-3-85101768-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">遇到问题：<em>windows</em>2008服务器需要定时对外<em>开放</em>。解决问题：写批处理，然后加入计划任务，来保证服务器准点<em>开放</em>，让外网用户可以访问。 &nbsp; &nbsp;主要是 介绍批处理如何实现定时<em>开启</em>和关闭<em>防火墙</em>。开始&rarr;控制面板&rarr;<em>系统</em>和安全&rarr;<em>Windows</em><em>防火墙</em>&rarr;高级<em>设置</em>，根据业务需求，新建入站<em>规则</em>和出战<em>规则</em>。（<em>规则</em>名称最好不要有空格，括号等，否则写批处理 不是很规范的写好） 批处理内容： &nbsp;netsh advfire...</div>
+			</a>
+		</div>
+	</div>
+</div>
+		<dl id="recommend-item-box-tow" class="recommend-item-box type_blog clearfix">
+			
+		</dl>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/humors221/article/details/79937835"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.4","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-79937835-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"4","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/humors221/article/details/79937835"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/humors221/article/details/79937835" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.4","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-79937835-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"4","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/humors221/article/details/79937835"}'  data-report-query='spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-79937835-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-79937835-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">批处理<em>设置</em><em>windows</em><em>防火墙</em>协议<em>规则</em></div>
+					<div class="tag">热门推荐</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/humors221" target="_blank"><span class="blog-title">humors221的专栏</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">04-14</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					1万+
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/humors221/article/details/79937835" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.4","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-4-79937835-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"4","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/humors221/article/details/79937835"}'  data-report-query='spm=1001.2101.3001.6650.4&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-79937835-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-4-79937835-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">声明：欢迎批评指正
+测试环境：<em>windows</em>7专业版
+参考文献：1.协议号大全：https://blog.csdn.net/lisayh/article/details/78558301
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.命令行的字符串包含：http://www.bathome.net/thread-16792-1-1.html
+准备工作：1.协议号：
+0 &nbsp;HOPOPT IPv6</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/zengliguang/article/details/132657659"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.5","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-132657659-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"5","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/zengliguang/article/details/132657659"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/zengliguang/article/details/132657659" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.5","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-132657659-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"5","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/zengliguang/article/details/132657659"}'  data-report-query='spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-132657659-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-132657659-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">window<em>系统</em> bat脚本<em>开启</em>和关闭<em>防火墙</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/zengliguang" target="_blank"><span class="blog-title">zengliguang的专栏</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">09-03</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					765
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/zengliguang/article/details/132657659" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.5","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-5-132657659-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"5","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/zengliguang/article/details/132657659"}'  data-report-query='spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-132657659-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-132657659-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">手动去关闭和<em>开启</em><em>防火墙</em>太麻烦。</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/weixin_48421613/article/details/123547657"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.6","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-123547657-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"6","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/weixin_48421613/article/details/123547657"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/weixin_48421613/article/details/123547657" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.6","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-123547657-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"6","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/weixin_48421613/article/details/123547657"}'  data-report-query='spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-123547657-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-123547657-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">分享一个批量处理<em>防火墙</em><em>规则</em>的脚本</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/weixin_48421613" target="_blank"><span class="blog-title">weixin_48421613的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">03-17</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					2485
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/weixin_48421613/article/details/123547657" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.6","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-6-123547657-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"6","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/weixin_48421613/article/details/123547657"}'  data-report-query='spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-123547657-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-123547657-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">最近比较忙，大概半个月前，有一名粉丝私信我说，他们的客户给了她一份长达数万条的<em>防火墙</em>log日志，里面记载了<em>防火墙</em>的<em>规则</em>、源ip、目的ip、<em>防火墙</em>行为、协议等信息，并要求她将这个log文件形成Excel表格，按照<em>规则</em>名字、<em>规则</em>下的行为、源ip、目的ip、协议给写出来，要是手动处理的话，不但容易出现披露，而且确实是一件很累人的事儿。
+​说实话，那天我也挺忙的，但是出于LSP本能粉丝的事儿就是我的事儿的原则，我还是挑战了一下自己的软肋，因为我写的都是一些不算难的漏洞检测脚本，像这种纯功能性的东西我没写过。
+首先看</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/BjarneCpp/article/details/132343372"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.7","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-132343372-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"7","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/BjarneCpp/article/details/132343372"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/BjarneCpp/article/details/132343372" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.7","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-132343372-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"7","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/BjarneCpp/article/details/132343372"}'  data-report-query='spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-132343372-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-132343372-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>windows</em> bat脚本，使用命令行增加/删除<em>防火墙</em>：入站-出站，<em>规则</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/BjarneCpp" target="_blank"><span class="blog-title">问题的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">08-17</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					2580
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/BjarneCpp/article/details/132343372" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.7","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-132343372-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"7","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/BjarneCpp/article/details/132343372"}'  data-report-query='spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-132343372-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-132343372-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">常常手动<em>设置</em><em>防火墙</em>的入站或出站<em>规则</em>，比较麻烦，其实可以用命令行搞定。</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/qq_27953479/article/details/134264809"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.8","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-8-134264809-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"8","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/qq_27953479/article/details/134264809"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/qq_27953479/article/details/134264809" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.8","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-8-134264809-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"8","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/qq_27953479/article/details/134264809"}'  data-report-query='spm=1001.2101.3001.6650.8&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-134264809-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-134264809-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">netsh命令</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/qq_27953479" target="_blank"><span class="blog-title">qq_27953479的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">11-07</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					492
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/qq_27953479/article/details/134264809" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.8","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-8-134264809-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"8","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/qq_27953479/article/details/134264809"}'  data-report-query='spm=1001.2101.3001.6650.8&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-134264809-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-8-134264809-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">192.168.0.0/24表示网络的CIDR地址段，本地连接是网络接口的名称，192.168.0.254是网关的地址。enable：是否启用<em>规则</em>（yes：启用，no：禁用；listenaddress: 本机的监听地址, 不填默认为本机地址。action:操作，allow允许连接，block阻止连接。可以查看各个网卡的名称、IP、子网掩码、网关等。dir:方向,in为入站，out为出站。listenport: 本机的监听端口。add 添加新入站或出站<em>防火墙</em><em>规则</em>。show 显示指定的<em>防火墙</em><em>规则</em>。</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_download clearfix" data-url="https://download.csdn.net/download/Ruixun035/87613437"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.9","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-9-87613437-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"9","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/Ruixun035/87613437"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://download.csdn.net/download/Ruixun035/87613437" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.9","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-9-87613437-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"9","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/Ruixun035/87613437"}'  data-report-query='spm=1001.2101.3001.6650.9&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-9-87613437-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-9-87613437-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>Windows</em>批处理一<em>键</em><em>开放</em><em>防火墙</em>端口.bat</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">03-25</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://download.csdn.net/download/Ruixun035/87613437" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.9","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-9-87613437-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"9","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/Ruixun035/87613437"}'  data-report-query='spm=1001.2101.3001.6650.9&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-9-87613437-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-9-87613437-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1"><em>Windows</em>批处理一<em>键</em><em>开放</em><em>防火墙</em>端口</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_download clearfix" data-url="https://download.csdn.net/download/ahphong/88265103"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.10","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-10-88265103-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"10","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/ahphong/88265103"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://download.csdn.net/download/ahphong/88265103" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.10","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-10-88265103-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"10","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/ahphong/88265103"}'  data-report-query='spm=1001.2101.3001.6650.10&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-10-88265103-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-10-88265103-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">C#-<em>Windows</em><em>系统</em>一<em>键</em>关机源代码.rar</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">08-28</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://download.csdn.net/download/ahphong/88265103" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.10","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-download-2~default~OPENSEARCH~Rate-10-88265103-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"10","strategy":"2~default~OPENSEARCH~Rate","dest":"https://download.csdn.net/download/ahphong/88265103"}'  data-report-query='spm=1001.2101.3001.6650.10&utm_medium=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-10-88265103-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-download-2%7Edefault%7EOPENSEARCH%7ERate-10-88265103-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">C#_<em>Windows</em><em>系统</em>一<em>键</em>关机源代码 项目介绍 https://ahphong.blog.csdn.net/article/details/132546740?spm=1001.2014.3001.5502</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/m0_69904268/article/details/132429243"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.11","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-11-132429243-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"11","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_69904268/article/details/132429243"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/m0_69904268/article/details/132429243" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.11","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-11-132429243-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"11","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_69904268/article/details/132429243"}'  data-report-query='spm=1001.2101.3001.6650.11&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-11-132429243-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-11-132429243-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>开启</em><em>防火墙</em>后，一<em>键</em>在出入<em>规则</em><em>开启</em>各个端口</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/m0_69904268" target="_blank"><span class="blog-title">m0_69904268的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">08-22</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					88
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/m0_69904268/article/details/132429243" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.11","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-11-132429243-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"11","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_69904268/article/details/132429243"}'  data-report-query='spm=1001.2101.3001.6650.11&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-11-132429243-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-11-132429243-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">把下面内容拷贝一个bat文件，运行；就可以一<em>键</em>在<em>防火墙</em>出入站<em>规则</em><em>开启</em>对应端口。</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/yfsz9999/article/details/123306043"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.12","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-12-123306043-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"12","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/yfsz9999/article/details/123306043"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/yfsz9999/article/details/123306043" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.12","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-12-123306043-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"12","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/yfsz9999/article/details/123306043"}'  data-report-query='spm=1001.2101.3001.6650.12&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-12-123306043-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-12-123306043-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>windows</em>电脑<em>防火墙</em>关闭，一<em>键</em><em>系统</em><em>防火墙</em>关闭工具推荐</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/yfsz9999" target="_blank"><span class="blog-title">yfsz9999的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">03-06</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					2916
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/yfsz9999/article/details/123306043" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.12","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-12-123306043-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"12","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/yfsz9999/article/details/123306043"}'  data-report-query='spm=1001.2101.3001.6650.12&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-12-123306043-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-12-123306043-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">有时我们想禁止特定的程序连接到网络，以防止上传和其他操作。当使用第三方软件时，它会占用<em>系统</em>的资源。我们需要使用<em>windows</em>自己的<em>防火墙</em>，但是<em>windows</em>自己的<em>防火墙</em><em>设置</em>很复杂，为大家推荐Firewall App Blocker，是一个<em>防火墙</em>配置程序。
+
+
+​
+
+
+​
+
+
+
+使用方法
+
+单独软件屏蔽软件使用方法：这个是非常的简单，只需拖放应用程序到<em>防火墙</em>工具就可以了，如果你想再次允许它只是使用删除按钮。
+
+
+
+
+​
+
+
+
+
+如果想要彻底关闭<em>防火墙</em>，只需用工具禁用<em>防火墙</em>就可以了，也是非常的简单
+
+
+​
+
+
+</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/m0_43605481/article/details/125772820"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.13","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-13-125772820-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"13","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_43605481/article/details/125772820"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/m0_43605481/article/details/125772820" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.13","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-13-125772820-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"13","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_43605481/article/details/125772820"}'  data-report-query='spm=1001.2101.3001.6650.13&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-13-125772820-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-13-125772820-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">bat批处理 添加<em>防火墙</em>出入站<em>规则</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/m0_43605481" target="_blank"><span class="blog-title">m0_43605481的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">07-13</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					4058
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/m0_43605481/article/details/125772820" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.13","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-13-125772820-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"13","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/m0_43605481/article/details/125772820"}'  data-report-query='spm=1001.2101.3001.6650.13&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-13-125772820-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-13-125772820-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">bat批处理 添加<em>防火墙</em>出入站<em>规则</em></div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/weixin_70208651/article/details/136465535"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.14","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-14-136465535-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"14","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_70208651/article/details/136465535"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/weixin_70208651/article/details/136465535" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.14","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-14-136465535-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"14","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_70208651/article/details/136465535"}'  data-report-query='spm=1001.2101.3001.6650.14&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-14-136465535-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-14-136465535-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">Linux<em>系统</em>运维脚本：一<em>键</em>添加<em>防火墙</em><em>规则</em>（<em>开启</em>服务和网络端口）</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/weixin_70208651" target="_blank"><span class="blog-title">weixin_70208651的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">03-04</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					1004
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/weixin_70208651/article/details/136465535" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.14","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-14-136465535-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"14","strategy":"2~default~CTRLIST~Rate","dest":"https://blog.csdn.net/weixin_70208651/article/details/136465535"}'  data-report-query='spm=1001.2101.3001.6650.14&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-14-136465535-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-14-136465535-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">脚本中使用firewall-cmd --add-port 添加<em>防火墙</em><em>规则</em>，使用firewall-cmd --remove-port移除<em>防火墙</em><em>规则</em>；脚本实现一<em>键</em>添加这些<em>防火墙</em><em>规则</em>，<em>开放</em>相关的所有服务、和网络端口</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/woniu211111/article/details/88573806"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.15","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-15-88573806-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"15","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/woniu211111/article/details/88573806"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/woniu211111/article/details/88573806" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.15","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-15-88573806-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"15","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/woniu211111/article/details/88573806"}'  data-report-query='spm=1001.2101.3001.6650.15&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-88573806-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-88573806-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">批处理cmd<em>开启</em>，关闭<em>防火墙</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/woniu211111" target="_blank"><span class="blog-title">码农code之路</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">03-15</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					9670
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/woniu211111/article/details/88573806" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.15","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-15-88573806-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"15","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://blog.csdn.net/woniu211111/article/details/88573806"}'  data-report-query='spm=1001.2101.3001.6650.15&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-88573806-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-15-88573806-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">管理员启动dos窗口
+
+<em>开启</em><em>防火墙</em>：
+
+
+netsh advfirewall set allprofiles state on
+
+关闭<em>防火墙</em>：
+
+
+netsh advfirewall set allprofiles state off
+
+
+</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://false.blog.csdn.net/article/details/118512977"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.16","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-16-118512977-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"16","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://false.blog.csdn.net/article/details/118512977"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://false.blog.csdn.net/article/details/118512977" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.16","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-16-118512977-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"16","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://false.blog.csdn.net/article/details/118512977"}'  data-report-query='spm=1001.2101.3001.6650.16&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-16-118512977-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-16-118512977-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>开启</em><em>防火墙</em>脚本</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/gaofenglxx" target="_blank"><span class="blog-title">铁根的博客</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">07-06</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					366
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://false.blog.csdn.net/article/details/118512977" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.16","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-16-118512977-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"16","strategy":"2~default~BlogCommendFromBaidu~Rate","dest":"https://false.blog.csdn.net/article/details/118512977"}'  data-report-query='spm=1001.2101.3001.6650.16&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-16-118512977-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-16-118512977-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">sc config   MpsSvc start= AUTO  
+net start   MpsSvc
+
+
+
+</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_blog clearfix" data-url="https://blog.csdn.net/yanceyxin/article/details/139318572"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.17","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BLOGTAG~default-17-139318572-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"17","strategy":"2~default~BLOGTAG~default","dest":"https://blog.csdn.net/yanceyxin/article/details/139318572"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://blog.csdn.net/yanceyxin/article/details/139318572" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.17","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BLOGTAG~default-17-139318572-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"17","strategy":"2~default~BLOGTAG~default","dest":"https://blog.csdn.net/yanceyxin/article/details/139318572"}'  data-report-query='spm=1001.2101.3001.6650.17&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBLOGTAG%7Edefault-17-139318572-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBLOGTAG%7Edefault-17-139318572-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1">x264 参考帧管理源码分析</div>
+					<div class="tag">最新发布</div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info">
+					<a href="https://blog.csdn.net/yanceyxin" target="_blank"><span class="blog-title">小金牛来了</span></a>
+				</div>
+				<div class="info display-flex">
+					<span class="info-block time">05-30</span>
+					<span class="info-block read"><img class="read-img" src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					136
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://blog.csdn.net/yanceyxin/article/details/139318572" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.17","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-blog-2~default~BLOGTAG~default-17-139318572-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"17","strategy":"2~default~BLOGTAG~default","dest":"https://blog.csdn.net/yanceyxin/article/details/139318572"}'  data-report-query='spm=1001.2101.3001.6650.17&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBLOGTAG%7Edefault-17-139318572-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBLOGTAG%7Edefault-17-139318572-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">x264 参考帧管理源码分析</div>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="recommend-item-box type_chatgpt clearfix" data-url="https://wenku.csdn.net/answer/75i9fn78ke"  data-report-view='{"ab":"new","spm":"1001.2101.3001.6650.18","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-chatgpt-2~default~OPENSEARCH~Position-18-75i9fn78ke-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"18","strategy":"2~default~OPENSEARCH~Position","dest":"https://wenku.csdn.net/answer/75i9fn78ke"}'>
+	<div class="content-box">
+		<div class="content-blog display-flex">
+			<div class="title-box">
+				<a href="https://wenku.csdn.net/answer/75i9fn78ke" class="tit" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.18","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-chatgpt-2~default~OPENSEARCH~Position-18-75i9fn78ke-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"18","strategy":"2~default~OPENSEARCH~Position","dest":"https://wenku.csdn.net/answer/75i9fn78ke"}'  data-report-query='spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-chatgpt-2%7Edefault%7EOPENSEARCH%7EPosition-18-75i9fn78ke-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-chatgpt-2%7Edefault%7EOPENSEARCH%7EPosition-18-75i9fn78ke-blog-132700728.235%5Ev43%5Econtrol'>
+					<div class="left ellipsis-online ellipsis-online-1"><em>windows</em> defender 一<em>键</em><em>开启</em></div>
+				</a>
+			</div>
+			<div class="info-box display-flex">
+				<div class="info display-flex">
+					<span class="info-block">09-06</span>
+				</div>
+			</div>
+		</div>
+		<div class="desc-box">
+			<a href="https://wenku.csdn.net/answer/75i9fn78ke" target="_blank"  data-report-click='{"ab":"new","spm":"1001.2101.3001.6650.18","mod":"popu_387","extra":"{\"highlightScore\":0.0,\"utm_medium\":\"distribute.pc_relevant.none-task-chatgpt-2~default~OPENSEARCH~Position-18-75i9fn78ke-blog-132700728.235^v43^control\",\"dist_request_id\":\"1717151404473_25193\"}","dist_request_id":"1717151404473_25193","ab_strategy":"increase_t0_anti_vip","index":"18","strategy":"2~default~OPENSEARCH~Position","dest":"https://wenku.csdn.net/answer/75i9fn78ke"}'  data-report-query='spm=1001.2101.3001.6650.18&utm_medium=distribute.pc_relevant.none-task-chatgpt-2%7Edefault%7EOPENSEARCH%7EPosition-18-75i9fn78ke-blog-132700728.235%5Ev43%5Econtrol&depth_1-utm_source=distribute.pc_relevant.none-task-chatgpt-2%7Edefault%7EOPENSEARCH%7EPosition-18-75i9fn78ke-blog-132700728.235%5Ev43%5Econtrol'>
+				<div class="desc ellipsis-online ellipsis-online-1">要一<em>键</em><em>开启</em><em>Windows</em> Defender，您可以按照以下步骤进行操作：
+
+1. 打开<em>Windows</em> Defender：点击<em>Windows</em>任务栏上的<em>Windows</em>徽标，在弹出的菜单中选择&ldquo;<em>设置</em>&rdquo;选项。
+
+2. 进入<em>Windows</em><em>设置</em>：在&ldquo;<em>设置</em>&rdquo;窗口中，点击&ldquo;更新和安全&rdquo;选项。
+
+3. 点击<em>Windows</em>安全：在&ldquo;更新和安全&rdquo;窗口中，选择&ldquo;<em>Windows</em>安全&rdquo;选项。
+
+4. <em>开启</em>实时保护：在&ldquo;<em>Windows</em>安全&rdquo;窗口中，点击左侧导航栏中的&ldquo;病毒和威胁防护&rdquo;选项。
+
+5. <em>开启</em>实时保护功能：在&ldquo;病毒和威胁防护&rdquo;页面中，找到&ldquo;实时保护&rdquo;选项，并点击右侧的&ldquo;切换&rdquo;按钮，将其<em>开启</em>。
+
+6. 完成<em>开启</em>：<em>开启</em>实时保护后，<em>Windows</em> Defender会自动保护您的计算机免受恶意软件和其他威胁的侵害。
+
+请注意，上述步骤适用于<em>Windows</em> 10操作<em>系统</em>，对于其他版本的<em>Windows</em>操作<em>系统</em>可能会有所不同。确保您的<em>Windows</em>操作<em>系统</em>已经更新到最新版本，并且没有使用其他第三方杀毒软件，以免与<em>Windows</em> Defender产生冲突。如果您有其他安全需求，建议结合<em>Windows</em> Defender使用其他安全工具，以提供更全面的保护。</div>
+			</a>
+		</div>
+	</div>
+</div>
+              </div>
+<div id="recommendNps" class="recommend-nps-box common-nps-box">
+  <h3 class="aside-title">“相关推荐”对你有帮助么？</h3>
+  <div class="aside-content">
+      <ul class="newnps-list">
+          <li class="newnps-item" data-type="非常没帮助">
+              <div class="newnps-img-box">
+                  <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel1.png" alt="">
+                  <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey1.png" alt="">
+              </div>
+              <div class="newnps-text">非常没帮助</div>
+          </li>
+          <li class="newnps-item" data-type="没帮助">
+              <div class="newnps-img-box">
+                  <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel2.png" alt="">
+                  <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey2.png" alt="">
+              </div>
+              <div class="newnps-text">没帮助</div>
+          </li>
+          <li class="newnps-item" data-type="一般">
+              <div class="newnps-img-box">
+                  <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel3.png" alt="">
+                  <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey3.png" alt="">
+              </div>
+              <div class="newnps-text">一般</div>
+          </li>
+          <li class="newnps-item" data-type="有帮助">
+              <div class="newnps-img-box">
+                  <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel4.png" alt="">
+                  <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey4.png" alt="">
+              </div>
+              <div class="newnps-text">有帮助</div>
+          </li>
+          <li class="newnps-item" data-type="非常有帮助">
+              <div class="newnps-img-box">
+                  <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel5.png" alt="">
+                  <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey5.png" alt="">
+              </div>
+              <div class="newnps-text">非常有帮助</div>
+          </li>
+      </ul>
+      <div class="newnps-form-box">
+      <div class="newnps-form">
+          <input type="text" placeholder="请输入建议或反馈后点击提交" class="newnps-input">
+          <span class="newnps-btn">提交</span>
+      </div>
+      </div>
+  </div>
+</div><div class="blog-footer-bottom" style="margin-top:10px;"></div>
+<script src="https://g.csdnimg.cn/common/csdn-footer/csdn-footer.js" data-isfootertrack="false" type="text/javascript"></script>
+<script type="text/javascript">
+    window.csdn.csdnFooter.options = {
+        el: '.blog-footer-bottom',
+        type: 2
+    }
+</script>          </main>
+<aside class="blog_container_aside">
+<div id="asideProfile" class="aside-box">
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/zengliguang" target="_blank" data-report-click='{"mod":"popu_379","spm":"1001.2101.3001.4121","dest":"https://blog.csdn.net/zengliguang","ab":"new"}'>
+                <img src="https://profile-avatar.csdnimg.cn/f94dac73b6ef4008810d0c01c6405082_zengliguang.jpg!1" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex flex-column profile-intro-name-box">
+            <div class="profile-intro-name-boxTop">
+                <a href="https://blog.csdn.net/zengliguang" target="_blank" class="" id="uid" title="三希" data-report-click='{"mod":"popu_379","spm":"1001.2101.3001.4122","dest":"https://blog.csdn.net/zengliguang","ab":"new"}'>
+                    <span class="name " username="zengliguang">三希</span>
+                </a>
+                <span>
+                </span>
+                <span class="flag expert-blog">
+                <span class="bubble">CSDN认证博客专家</span>
+                </span>
+                <span class="flag company-blog">
+                <span class="bubble">CSDN认证企业博客</span>
+                </span>
+            </div>
+            <div class="profile-intro-name-boxFooter">
+                <span class="personal-home-page personal-home-years" title="已加入 CSDN 16年">码龄16年</span>
+                    <span class="personal-home-page">
+                    <a class="personal-home-certification" href="https://i.csdn.net/#/uc/profile?utm_source=14998968" target="_blank" title="暂无认证">
+                    <img src="https://csdnimg.cn/identity/nocErtification.png" alt="">
+                    暂无认证
+                    </a>
+                    </span>
+            </div>
+        </div>
+    </div>
+    <div class="data-info d-flex item-tiling">
+        <dl class="text-center" title="1039">
+            <a href="https://blog.csdn.net/zengliguang" data-report-click='{"mod":"1598321000_001","spm":"1001.2101.3001.4310"}' data-report-query="t=1">  
+                <dt><span class="count">1039</span></dt>
+                <dd class="font">原创</dd>
+            </a>
+        </dl>
+        <dl class="text-center" data-report-click='{"mod":"1598321000_002","spm":"1001.2101.3001.4311"}' title="4256">
+            <a href="https://blog.csdn.net/rank/list/weekly" target="_blank">
+                <dt><span class="count">4256</span></dt>
+                <dd class="font">周排名</dd>
+            </a>
+        </dl>
+        <dl class="text-center" title="1560">
+            <a href="https://blog.csdn.net/rank/list/total" data-report-click='{"mod":"1598321000_003","spm":"1001.2101.3001.4312"}' target="_blank">
+                <dt><span class="count">1560</span></dt>
+                <dd class="font">总排名</dd>
+            </a>
+        </dl>
+        <dl class="text-center" style="min-width:58px" title="675121">  
+            <dt><span class="count">67万+</span></dt>
+            <dd>访问</dd>
+        </dl>
+        <dl class="text-center" title="7级,点击查看等级说明">
+            <dt><a href="https://blog.csdn.net/blogdevteam/article/details/103478461" target="_blank">
+                <img class="level" src="https://csdnimg.cn/identity/blog7.png">
+            </a>
+            </dt>
+            <dd>等级</dd>
+        </dl>
+    </div>
+    <div class="item-rank"></div>
+    <div class="data-info d-flex item-tiling">
+        <dl class="text-center" title="14938">
+            <dt><span class="count">1万+</span></dt>
+            <dd>积分</dd>
+        </dl>
+         <dl class="text-center" id="fanBox" title="3489">
+            <dt><span class="count" id="fan">3489</span></dt>
+            <dd>粉丝</dd>
+        </dl>
+        <dl class="text-center" title="4248">
+            <dt><span class="count">4248</span></dt>
+            <dd>获赞</dd>
+        </dl>
+        <dl class="text-center" title="153">
+            <dt><span class="count">153</span></dt>
+            <dd>评论</dd>
+        </dl>
+        <dl class="text-center" title="3115">
+            <dt><span class="count">3115</span></dt>
+            <dd>收藏</dd>
+        </dl>
+    </div>
+    <div class="aside-box-footer" data-report-view='{"spm":"3001.4296"}'>
+        <div class="badge-box d-flex">
+            <div class="badge d-flex">
+                <div class="icon-badge" title="习惯养成">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/xiguanyangchengLv2.png" alt="习惯养成">
+                    </div>
+                </div>
+                <div class="icon-badge" title="分享小兵">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/fengxiangxiaobing@240.png" alt="分享小兵">
+                    </div>
+                </div>
+                <div class="icon-badge" title="持之以恒">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/af8a387c0bd9421ba0dc62f39f592b2d.png" alt="持之以恒">
+                    </div>
+                </div>
+                <div class="icon-badge" title="五一创作勋章">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/51_create.png" alt="五一创作勋章">
+                    </div>
+                </div>
+                <div class="icon-badge" title="持续创作">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/chizhiyiheng@240.png" alt="持续创作">
+                    </div>
+                </div>
+                <div class="icon-badge" title="1024勋章">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/1024@240.png" alt="1024勋章">
+                    </div>
+                </div>
+                <div class="icon-badge" title="勤写标兵">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/eabb492c5e3343738376cdb052649492.png" alt="勤写标兵">
+                    </div>
+                </div>
+                <div class="icon-badge" title="笔耕不辍">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/02d34b42a3ee476fb50850304ab67017.png" alt="笔耕不辍">
+                    </div>
+                </div>
+                <div class="icon-badge" title="创作能手">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/qixiebiaobing4@240.png" alt="创作能手">
+                    </div>
+                </div>
+                <div class="icon-badge" title="学无止境">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/0af32a292d094a4cbfd0feff60f3590d.png" alt="学无止境">
+                    </div>
+                </div>
+                <div class="icon-badge" title="阅读者勋章">
+                    <div class="mouse-box">
+                        <img class="medal-img" data-report-click='{"spm":"3001.4296"}' src="https://csdnimg.cn/medal/yuedu3@240.png" alt="阅读者勋章">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-intro-name-boxOpration">
+        <div class="opt-letter-watch-box">
+        <a rel="nofollow" class="bt-button personal-letter" href="https://im.csdn.net/chat/zengliguang" target="_blank" rel="noopener">私信</a>
+        </div>
+        <div class="opt-letter-watch-box"> 
+            <a class="personal-watch bt-button" id="btnAttent" >关注</a>  
+        </div>
+    </div>
+</div>
+<a id="remuneration" data-report-click='{"spm":"1001.2101.3001.9809"}' rel="nofollow" href="" class="remuneration-box">
+  <img src="" alt="">
+</a>
+  <div id="asideWriteGuide" class="aside-box side-write-guide-box type-2" data-report-view='{"spm":"3001.9728"}'>
+    <div class="content-box">
+      <a rel="nofollow" href="https://mp.csdn.net" target="_blank" class="btn-go-write" data-report-query="spm=3001.9728" data-report-click='{"spm":"3001.9728"}'>
+        <img src="https://img-home.csdnimg.cn/images/20240218021830.png" alt="写文章">
+      </a>
+    </div>
+  </div>
+<div id="asideSearchArticle" class="aside-box">
+	<div class="aside-content search-comter">
+    <div class="aside-search aside-search-blog">         
+        <input type="text" class="input-serch-blog" name="" autocomplete="off" value="" id="search-blog-words" placeholder="搜博主文章">
+        <a class="btn-search-blog" data-report-click='{"spm":"1001.2101.3001.9182"}'>
+            <img src="//csdnimg.cn/cdn/content-toolbar/csdn-sou.png?v=1587021042">
+        </a>
+    </div>
+    </div>
+</div>
+<div class="box-shadow mb8" data-pid="blog" style="min-height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+        <div id="kp_box_56" data-pid="56"><!-- 300x250_A -->
+<script defer type="text/javascript" id="interactive_js_adcode" src="https://kunpeng-render.csdnimg.cn/publisher/v2.6/truereachAdRender.js"></script>
+<div id="TR-4ac9702b-be84-11ee-a301-b7516d250593"></div><img class="pre-img-lasy" data-src="https://kunyu.csdn.net/1.png?p=56&adId=1048397&adBlockFlag=0&a=1048397&c=0&k=windows系统一键开启防火墙并设置开放规则&spm=1001.2101.3001.5000&articleId=132700728&d=1&t=3&u=7243520df2674a69961f3b4ff2c96b50" style="display: block;width: 0px;height: 0px;"></div>
+    </div>
+</div>
+
+
+
+<div id="asideHotArticle" class="aside-box">
+	<h3 class="aside-title">热门文章</h3>
+	<div class="aside-content">
+		<ul class="hotArticle-list">
+			<li>
+				<a href="https://blog.csdn.net/zengliguang/article/details/130447035" target="_blank"  data-report-click='{"mod":"popu_541","spm":"1001.2101.3001.4139","dest":"https://blog.csdn.net/zengliguang/article/details/130447035","ab":"new"}'>
+				windows如何确认服务器上程序端口是否正常（ping、tcping）
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					<span class="read">31325</span>
+                </a>
+			</li>
+			<li>
+				<a href="https://blog.csdn.net/zengliguang/article/details/131318344" target="_blank"  data-report-click='{"mod":"popu_541","spm":"1001.2101.3001.4139","dest":"https://blog.csdn.net/zengliguang/article/details/131318344","ab":"new"}'>
+				postman导入json格式的接口文档
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					<span class="read">10912</span>
+                </a>
+			</li>
+			<li>
+				<a href="https://blog.csdn.net/zengliguang/article/details/131465168" target="_blank"  data-report-click='{"mod":"popu_541","spm":"1001.2101.3001.4139","dest":"https://blog.csdn.net/zengliguang/article/details/131465168","ab":"new"}'>
+				群晖ssh登录并开启root用户登录功能
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					<span class="read">8594</span>
+                </a>
+			</li>
+			<li>
+				<a href="https://blog.csdn.net/zengliguang/article/details/130513973" target="_blank"  data-report-click='{"mod":"popu_541","spm":"1001.2101.3001.4139","dest":"https://blog.csdn.net/zengliguang/article/details/130513973","ab":"new"}'>
+				wvp-GB28181-pro录像功能开发环境搭建、配置、使用
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					<span class="read">7507</span>
+                </a>
+			</li>
+			<li>
+				<a href="https://blog.csdn.net/zengliguang/article/details/132630860" target="_blank"  data-report-click='{"mod":"popu_541","spm":"1001.2101.3001.4139","dest":"https://blog.csdn.net/zengliguang/article/details/132630860","ab":"new"}'>
+				windows vmware17虚拟机导出、导入
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/readCountWhite.png" alt="">
+					<span class="read">7293</span>
+                </a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">分类专栏</h3>
+    <div class="aside-content">
+        <ul>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12521124.html" data-report-click='{"mod":"popu_826","spm":"1001.2101.3001.4230","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12521124.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/direct/027be49888324581b607d767e80c3928.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        wvp gb28181 Pro
+                    </span>
+                        <span class="pay-tag">付费</span>
+                </a>
+                <span class="special-column-num">21篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592481.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592481.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756928.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        docker学习
+                    </span>
+                </a>
+                <span class="special-column-num">30篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592488.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592488.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756923.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        go学习
+                    </span>
+                </a>
+                <span class="special-column-num">22篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592480.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592480.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        ubuntu学习
+                    </span>
+                </a>
+                <span class="special-column-num">20篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522609.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522609.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/direct/fdc17f19be394afe9a2efda86a18afe7.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        ky10 server
+                    </span>
+                </a>
+                <span class="special-column-num">29篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12597842.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12597842.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756927.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        linux学习
+                    </span>
+                </a>
+                <span class="special-column-num">20篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592486.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592486.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756918.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        python学习
+                    </span>
+                </a>
+                <span class="special-column-num">19篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592487.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592487.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756930.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        java学习
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592479.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592479.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756724.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        vue2、vue3学习
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592478.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592478.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/20201014180756738.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        uni-app开发
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522611.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522611.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/direct/6416d4db057a4242827895d3a1188682.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        centos7
+                    </span>
+                </a>
+                <span class="special-column-num">9篇</span>
+            </li>
+            <li>
+                <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522607.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522607.html","ab":"new"}'>
+                    <div class="special-column-bar "></div>
+                    <img src="https://img-blog.csdnimg.cn/direct/7faa4c337bad4eaebf5c0a6ed7239dee.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                    <span class="title oneline">
+                        git代码管理
+                    </span>
+                </a>
+                <span class="special-column-num">5篇</span>
+            </li>
+        </ul>
+    </div>
+    <p class="text-center">
+        <a class="flexible-btn" data-fbox="aside-archive"><img class="look-more" src="https://csdnimg.cn/release/blogv2/dist/pc/img/arrowDownWhite.png" alt=""></a>
+    </p>
+</div>
+<div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+            <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zengliguang/article/details/139307040#comments_33128947" data-report-click='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/139307040#comments_33128947","ab":"new"}' data-report-view='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/139307040#comments_33128947","ab":"new"}'>python 实现指定网卡抓过滤目的ip和端口之后的udp包 ，存为pcap文件，支持开始抓包和指定时间自动停止抓包</a>
+                <p class="comment ellipsis">
+                    <a href="https://blog.csdn.net/2301_82243070" class="user-name" target="_blank">2301_82243070: </a>
+                    <span class="code-comments">感谢大佬分享好文，学到了不少新知识，支持大佬，期待大佬持续输出优质文章！【我也写了一些相关领域的文章，希望能够得到博主的指导，共同进步！】</span>
+                </p>
+            </li>
+            <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004281" data-report-click='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004281","ab":"new"}' data-report-view='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004281","ab":"new"}'>alist windows桌面版下载安装</a>
+                <p class="comment ellipsis">
+                    <a href="https://blog.csdn.net/leyang0910" class="user-name" target="_blank">诗者才子酒中仙: </a>
+                    <span class="code-comments">给你打赏换一个行吗</span>
+                </p>
+            </li>
+            <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004275" data-report-click='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004275","ab":"new"}' data-report-view='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/133109591#comments_33004275","ab":"new"}'>alist windows桌面版下载安装</a>
+                <p class="comment ellipsis">
+                    <a href="https://blog.csdn.net/leyang0910" class="user-name" target="_blank">诗者才子酒中仙: </a>
+                    <span class="code-comments">请问下，激活码能给我一个吗？</span>
+                </p>
+            </li>
+            <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zengliguang/article/details/136440653#comments_32982267" data-report-click='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/136440653#comments_32982267","ab":"new"}' data-report-view='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/136440653#comments_32982267","ab":"new"}'>shell脚本设置输出颜色</a>
+                <p class="comment ellipsis">
+                    <a href="https://blog.csdn.net/xiaod_szu" class="user-name" target="_blank">jesson3264: </a>
+                    <span class="code-comments">要加 -e</span>
+                </p>
+            </li>
+            <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/zengliguang/article/details/131616181#comments_32964631" data-report-click='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/131616181#comments_32964631","ab":"new"}' data-report-view='{"mod":"popu_542","spm":"1001.2101.3001.4231","dest":"https://blog.csdn.net/zengliguang/article/details/131616181#comments_32964631","ab":"new"}'>pycharm连接mysql数据库</a>
+                <p class="comment ellipsis">
+                    <a href="https://blog.csdn.net/zengliguang" class="user-name" target="_blank">三希: </a>
+                    <span class="code-comments">收费的</span>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="asideNewNps" class="aside-box common-nps-box">
+    <h3 class="aside-title">您愿意向朋友推荐“博客详情页”吗？</h3>
+    <div class="aside-content">
+        <ul class="newnps-list">
+            <li class="newnps-item" data-type="强烈不推荐">
+                <div class="newnps-img-box">
+                    <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel1.png" alt="">
+                    <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey1.png" alt="">
+                </div>
+                <div class="newnps-text">强烈不推荐</div>
+            </li>
+            <li class="newnps-item" data-type="不推荐">
+                <div class="newnps-img-box">
+                    <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel2.png" alt="">
+                    <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey2.png" alt="">
+                </div>
+                <div class="newnps-text">不推荐</div>
+            </li>
+            <li class="newnps-item" data-type="一般般">
+                <div class="newnps-img-box">
+                    <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel3.png" alt="">
+                    <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey3.png" alt="">
+                </div>
+                <div class="newnps-text">一般般</div>
+            </li>
+            <li class="newnps-item" data-type="推荐">
+                <div class="newnps-img-box">
+                    <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel4.png" alt="">
+                    <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey4.png" alt="">
+                </div>
+                <div class="newnps-text">推荐</div>
+            </li>
+            <li class="newnps-item" data-type="强烈推荐">
+                <div class="newnps-img-box">
+                    <img class="newnps-img active" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeel5.png" alt="">
+                    <img class="newnps-img default" src="https://csdnimg.cn/release/blogv2/dist/pc/img/npsFeelGrey5.png" alt="">
+                </div>
+                <div class="newnps-text">强烈推荐</div>
+            </li>
+        </ul>
+        <div class="newnps-form-box">
+        <div class="newnps-form">
+            <input type="text" placeholder="请输入建议或反馈后点击提交" class="newnps-input">
+            <span class="newnps-btn">提交</span>
+        </div>
+        </div>
+    </div>
+</div>
+<div id="asideArchive" class="aside-box" style="display:block!important; width:300px;">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix">
+            <li class="clearfix">
+            <a href="https://blog.csdn.net/zengliguang/article/details/139357940" target="_blank" data-report-click='{"mod":"popu_382","spm":"1001.2101.3001.4136","dest":"https://blog.csdn.net/zengliguang/article/details/139357940","ab":"new"}' data-report-view='{"mod":"popu_382","dest":"https://blog.csdn.net/zengliguang/article/details/139357940","ab":"new"}'>python 获取当前日期和时间 ，如果大于指定时间则退出</a>
+            </li>
+            <li class="clearfix">
+            <a href="https://blog.csdn.net/zengliguang/article/details/139357921" target="_blank" data-report-click='{"mod":"popu_382","spm":"1001.2101.3001.4136","dest":"https://blog.csdn.net/zengliguang/article/details/139357921","ab":"new"}' data-report-view='{"mod":"popu_382","dest":"https://blog.csdn.net/zengliguang/article/details/139357921","ab":"new"}'>”2024-05-30 10:06:18“ 转datetime python</a>
+            </li>
+            <li class="clearfix">
+            <a href="https://blog.csdn.net/zengliguang/article/details/139350115" target="_blank" data-report-click='{"mod":"popu_382","spm":"1001.2101.3001.4136","dest":"https://blog.csdn.net/zengliguang/article/details/139350115","ab":"new"}' data-report-view='{"mod":"popu_382","dest":"https://blog.csdn.net/zengliguang/article/details/139350115","ab":"new"}'>python 从yaml文件读取一组ip，对这组ip 群ping ，记录下断线时间和恢复时间，断线、在线状态改变的时候写入到log文件中，统计断线次数到新的日志文件中</a>
+            </li>
+        </ul>
+        <div class="archive-bar"></div>
+        <div class="archive-box">
+                <div class="archive-title">2024</div> 
+                <div class="archive-content">
+                    <div class="archive-item">
+                        <a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=05" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=05"}'>
+                        <span class="time">05月</span>
+                        <span class="count">91篇</span>
+                        </a>
+                    </div>
+                    <div class="archive-item">
+                        <a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=04" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=04"}'>
+                        <span class="time">04月</span>
+                        <span class="count">196篇</span>
+                        </a>
+                    </div>
+                    <div class="archive-item">
+                        <a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=03" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=03"}'>
+                        <span class="time">03月</span>
+                        <span class="count">178篇</span>
+                        </a>
+                    </div>
+                    <div class="archive-item">
+                        <a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=02" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=02"}'>
+                        <span class="time">02月</span>
+                        <span class="count">119篇</span>
+                        </a>
+                    </div>
+                    <div class="archive-item">
+                        <a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=01" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2024&amp;month=01"}'>
+                        <span class="time">01月</span>
+                        <span class="count">105篇</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="archive-list-item"><a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2023&amp;month=12" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2023&amp;month=12"}'><span class="year">2023年</span><span class="num">343篇</span></a></div>
+                <div class="archive-list-item"><a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2020&amp;month=07" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2020&amp;month=07"}'><span class="year">2020年</span><span class="num">2篇</span></a></div>
+                <div class="archive-list-item"><a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2019&amp;month=03" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2019&amp;month=03"}'><span class="year">2019年</span><span class="num">2篇</span></a></div>
+                <div class="archive-list-item"><a href="https://blog.csdn.net/zengliguang?type=blog&amp;year=2018&amp;month=12" target="_blank" data-report-click='{"mod":"popu_538","spm":"1001.2101.3001.4138","ab":"new","dest":"https://blog.csdn.net/zengliguang?type=blog&amp;year=2018&amp;month=12"}'><span class="year">2018年</span><span class="num">4篇</span></a></div>
+        </div>
+    </div>
+</div>
+	<div id="footerRightAds" class="isShowFooterAds">
+		<div class="aside-box">
+			<div id="kp_box_57" data-pid="57"><iframe  src="https://kunpeng-sc.csdnimg.cn/?timestamp=1645783940/#/preview/1011810?positionId=57&adBlockFlag=0&adId=1050006&queryWord=windows系统一键开启防火墙并设置开放规则&spm=1001.2101.3001.5001&articleId=132700728" frameborder="0" width= "300px"  height= "600px" scrolling="no" ></iframe><img class="pre-img-lasy"  data-src="https://kunyu.csdn.net/1.png?p=57&adBlockFlag=0&adId=1050006&a=1050006&c=1011810&k=windows系统一键开启防火墙并设置开放规则&spm=1001.2101.3001.5001&articleId=132700728&d=1&t=3&u=a0cf0e289dec4143bfa2529413346a91" style="display: block;width: 0px;height: 0px;"></div>
+		</div>
+	</div>
+    <!-- 详情页显示目录 -->
+<!--文章目录-->
+<div id="asidedirectory" class="aside-box">
+    <div class='groupfile' id="directory">
+        <h3 class="aside-title">目录</h3>
+        <div class="align-items-stretch group_item">
+            <div class="pos-box">
+            <div class="scroll-box">
+                <div class="toc-box"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</aside>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).parents("p.text-center").remove();
+	})
+</script>
+<script type="text/javascript"  src="https://g.csdnimg.cn/user-tooltip/2.7/user-tooltip.js"></script>
+<script type="text/javascript"  src="https://g.csdnimg.cn/user-medal/2.0.0/user-medal.js"></script>        </div>
+<div class="recommend-right align-items-stretch clearfix" id="rightAside" data-type="recommend">
+    <aside class="recommend-right_aside">
+        <div id="recommend-right" >
+                            <div class="programmer1Box">
+                      <div id="kp_box_530" data-pid="530"><script defer type="text/javascript" id="interactive_js_adcode" src="https://kunpeng-render.csdnimg.cn/publisher/v2.6/truereachAdRender.js"></script>
+<div id="TR-780cc1b5-94d9-11ee-9cea-bf3fc95316dc"></div><img class="pre-img-lasy" data-src="https://kunyu.csdn.net/1.png?p=530&adId=1047584&adBlockFlag=0&a=1047584&c=0&k=windows系统一键开启防火墙并设置开放规则&spm=1001.2101.3001.4647&articleId=132700728&d=1&t=3&u=5c88217db7234b70a6d9260e1b2710f8" style="display: block;width: 0px;height: 0px;"></div>
+                  </div>
+          <div class='flex-column aside-box groupfile' id="groupfile">
+              <div class="groupfile-div">
+              <h3 class="aside-title">目录</h3>
+              <div class="align-items-stretch group_item">
+                  <div class="pos-box">
+                      <div class="scroll-box">
+                          <div class="toc-box"></div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+          </div>
+              <div id="recommendAdBox">
+                  <div id="kp_box_479" data-pid="479"><div class="wwads-cn wwads-vertical" data-id="149" style="max-width:300px;margin-top:10px;margin-bottom:10px;background-color: #fff;"></div> 
+<style>.wwads-img img {width: 150px; margin-top:10px}</style>
+<script type="text/javascript" charset="UTF-8" src="https://cdn.wwads.cn/js/makemoney.js" async></script><img class="pre-img-lasy" data-src="https://kunyu.csdn.net/1.png?p=479&adId=1049278&adBlockFlag=0&a=1049278&c=0&k=windows系统一键开启防火墙并设置开放规则&spm=1001.2101.3001.4834&articleId=132700728&d=1&t=3&u=7bce288f31d34403ad15bc9cf9c4c04e" style="display: block;width: 0px;height: 0px;"></div>
+              </div>
+          <div class='aside-box kind_person d-flex flex-column'>
+                  <h3 class="aside-title">分类专栏</h3>
+                  <div class="align-items-stretch kindof_item" id="kind_person_column">
+                      <div class="aside-content">
+                          <ul>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12521124.html" data-report-click='{"mod":"popu_826","spm":"1001.2101.3001.4230","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12521124.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/direct/027be49888324581b607d767e80c3928.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          wvp gb28181 Pro
+                                      </span>
+                                          <span class="pay-tag">付费</span>
+                                  </a>
+                                  <span class="special-column-num">21篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592481.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592481.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756928.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          docker学习
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">30篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592488.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592488.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756923.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          go学习
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">22篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592480.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592480.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          ubuntu学习
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">20篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522609.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522609.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/direct/fdc17f19be394afe9a2efda86a18afe7.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          ky10 server
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">29篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12597842.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12597842.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756927.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          linux学习
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">20篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592486.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592486.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756918.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          python学习
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">19篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592487.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592487.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756930.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          java学习
+                                      </span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592479.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592479.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756724.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          vue2、vue3学习
+                                      </span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12592478.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12592478.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/20201014180756738.png?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          uni-app开发
+                                      </span>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522611.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522611.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/direct/6416d4db057a4242827895d3a1188682.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          centos7
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">9篇</span>
+                              </li>
+                              <li>
+                                  <a class="clearfix special-column-name"  href="https://blog.csdn.net/zengliguang/category_12522607.html" data-report-click='{"mod":"popu_537","spm":"1001.2101.3001.4137","strategy":"pc付费专栏左侧入口","dest":"https://blog.csdn.net/zengliguang/category_12522607.html","ab":"new"}'>
+                                      <div class="special-column-bar "></div>
+                                      <img src="https://img-blog.csdnimg.cn/direct/7faa4c337bad4eaebf5c0a6ed7239dee.jpeg?x-oss-process=image/resize,m_fixed,h_64,w_64" alt="" onerror="this.src='https://img-blog.csdnimg.cn/20201014180756922.png?x-oss-process=image/resize,m_fixed,h_64,w_64'">
+                                      <span class="">
+                                          git代码管理
+                                      </span>
+                                  </a>
+                                  <span class="special-column-num">5篇</span>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+          </div>
+        </div>
+    </aside>
+</div>
+
+<div class="recommend-right1  align-items-stretch clearfix" id="rightAsideConcision" data-type="recommend">
+    <aside class="recommend-right_aside">
+        <div id="recommend-right-concision" >
+            <div class='flex-column aside-box groupfile' id="groupfileConcision">
+                <div class="groupfile-div1">
+                <h3 class="aside-title">目录</h3>
+                <div class="align-items-stretch group_item">
+                    <div class="pos-box">
+                        <div class="scroll-box">
+                            <div class="toc-box"></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+
+      </div>
+      <div class="mask-dark"></div>
+        <script type="text/javascript">
+        var timert = setInterval(function() {
+          sideToolbar = $(".csdn-side-toolbar");
+          if (sideToolbar.length > 0) {
+            sideToolbar.css('cssText', 'bottom:64px !important;')
+            clearInterval(timert);
+          }
+        }, 200);
+        </script>
+      <div class="skin-boxshadow"></div>
+      <div class="directory-boxshadow"></div>
+<div class="comment-side-box-shadow comment-side-tit-close" id="commentSideBoxshadow">
+<div class="comment-side-content">
+	<div class="comment-side-tit">
+		<span class="comment-side-tit-count">评论</span>	
+	<img class="comment-side-tit-close" src="https://csdnimg.cn/release/blogv2/dist/pc/img/closeBt.png"></div>
+	<div id="pcCommentSideBox" class="comment-box comment-box-new2 unlogin-comment-box-new" style="display:none">
+	</div>
+	<div id="pcFlodCommentSideBox" class="pc-flodcomment-sidebox">
+		<div class="comment-fold-tit"><span id="lookUnFlodComment" class="back"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/commentArrowLeftWhite.png" alt=""></span>被折叠的&nbsp;<span class="count"></span>&nbsp;条评论
+		 <a href="https://blogdev.blog.csdn.net/article/details/122245662" class="tip" target="_blank">为什么被折叠?</a>
+		 <a href="https://bbs.csdn.net/forums/FreeZone" class="park" target="_blank">
+		 <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/iconPark.png">到【灌水乐园】发言</a>                                
+		</div>
+		<div class="comment-fold-content"></div>
+		<div id="lookBadComment" class="look-bad-comment side-look-comment">
+			<a class="look-more-comment">查看更多评论<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/commentArrowDownWhite.png" alt=""></a>
+		</div>
+	</div>
+</div>
+<div class="comment-rewarddialog-box">
+  <div class="form-box">
+    <div class="title-box">
+      添加红包
+      <a class="btn-form-close"></a>
+    </div>
+    <form id="commentRewardForm">
+      <div class="ipt-box">
+        <label for="txtName">祝福语</label>
+        <div class="ipt-btn-box">
+          <input type="text" name="name" id="txtName" autocomplete="off" maxlength="50">
+          <a class="btn-ipt btn-random"></a>
+        </div>
+        <p class="notice">请填写红包祝福语或标题</p>
+      </div>
+      <div class="ipt-box">
+        <label for="txtSendAmount">红包数量</label>
+        <div class="ipt-txt-box">
+          <input type="text" name="sendAmount" maxlength="4" id="txtSendAmount" placeholder="请填写红包数量(最小10个)" autocomplete="off">
+          <span class="after-txt">个</span>
+        </div>
+        <p class="notice">红包个数最小为10个</p>
+      </div>
+      <div class="ipt-box">
+        <label for="txtMoney">红包总金额</label>
+        <div class="ipt-txt-box error">
+          <input type="text" name="money" maxlength="5" id="txtMoney" placeholder="请填写总金额(最低5元)" autocomplete="off">
+          <span class="after-txt">元</span>
+        </div>
+        <p class="notice">红包金额最低5元</p>
+      </div>
+      <div class="balance-info-box">
+        <label>余额支付</label>
+        <div class="balance-info">
+          当前余额<span class="balance">3.43</span>元
+          <a href="https://i.csdn.net/#/wallet/balance/recharge" class="link-charge" target="_blank">前往充值 ></a>
+        </div>
+      </div>
+      <div class="opt-box">
+        <div class="pay-info">
+          需支付：<span class="price">10.00</span>元
+        </div>
+        <button type="button" class="ml-auto btn-cancel">取消</button>
+        <button type="button" class="ml8 btn-submit" disabled="true">确定</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="rr-guide-box">
+  <div class="rr-first-box">
+    <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/guideRedReward02.png" alt="">
+    <button class="btn-guide-known next">下一步</button>
+  </div>
+  <div class="rr-second-box">
+    <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/guideRedReward03.png" alt="">
+    <button class="btn-guide-known known">知道了</button>
+  </div>
+</div>
+</div>
+
+<div class="redEnvolope" id="redEnvolope">
+  <div class="env-box">
+    <div class="env-container">
+      <div class="pre-open" id="preOpen">
+        <div class="top">
+          <header>
+            <img class="clearTpaErr" :src="redpacketAuthor.avatar" alt="" />
+            <div class="author">成就一亿技术人!</div>
+          </header>
+          <div class="bot-icon"></div>
+        </div>
+        <footer>
+          <div class="red-openbtn open-start"></div>
+          <div class="tip">
+            领取后你会自动成为博主和红包主的粉丝
+            <a class="rule" target="_blank">规则</a>
+          </div>
+        </footer>
+      </div>
+      <div class="opened" id="opened">
+        <div class="bot-icon">
+          <header>
+            <a class="creatorUrl" href="" target="_blank">
+              <img class="clearTpaErr" src="https://profile-avatar.csdnimg.cn/default.jpg!2" alt="" />
+            </a>
+            <div class="author">
+              <div class="tt">hope_wisdom</div> 发出的红包
+            </div>
+          </header>
+        </div>
+        <div class="receive-box">
+          <header></header>
+          <div class="receive-list">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="close-btn"></div>
+  </div>
+</div>
+<div id="rewardNew" class="reward-popupbox-new">
+	<p class="rewad-title">打赏作者<span class="reward-close"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/closeBt.png"></span></p>
+	<dl class="profile-box">
+		<dd>
+		<a href="https://blog.csdn.net/zengliguang" data-report-click='{"mod":"popu_379","dest":"https://blog.csdn.net/zengliguang","ab":"new"}'>
+			<img src="https://profile-avatar.csdnimg.cn/f94dac73b6ef4008810d0c01c6405082_zengliguang.jpg!1" class="avatar_pic">
+		</a>
+		</dd>
+		<dt>
+			<p class="blog-name">三希</p>
+			<p class="blog-discript">你的鼓励将是我创作的最大动力</p>
+		</dt>
+	</dl>
+	<div class="reward-box-new">
+			<div class="reward-content"><div class="reward-right"></div></div>
+	</div>
+	<div class="money-box">
+    <span class="choose-money choosed" data-id="1">¥1</span>
+    <span class="choose-money " data-id="2">¥2</span>
+    <span class="choose-money " data-id="4">¥4</span>
+    <span class="choose-money " data-id="6">¥6</span>
+    <span class="choose-money " data-id="10">¥10</span>
+    <span class="choose-money " data-id="20">¥20</span>
+	</div>
+	<div class="sure-box">
+		<div class="sure-box-money">
+			<div class="code-box">
+				<div class="code-num-box">
+					<span class="code-name">扫码支付：</span><span class="code-num">¥1</span>
+				</div>
+				<div class="code-img-box">
+					<div class="renovate">
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/pay-time-out.png">
+					<span>获取中</span>
+					</div>
+				</div>
+				<div class="code-pay-box">
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/newWeiXin.png" alt="">
+					<img src="https://csdnimg.cn/release/blogv2/dist/pc/img/newZhiFuBao.png" alt="">
+					<span>扫码支付</span>
+				</div>
+			</div>
+		</div>
+		<div class="sure-box-blance">
+			<p class="tip">您的余额不足，请更换扫码支付或<a target="_blank" data-report-click='{"mod":"1597646289_003","spm":"1001.2101.3001.4302"}' href="https://i.csdn.net/#/wallet/balance/recharge?utm_source=RewardVip" class="go-invest">充值</a></p>
+			<p class="is-have-money"><a class="reward-sure">打赏作者</a></p>
+		</div>
+	</div>
+</div>
+      
+      <div class="pay-code">
+      <div class="pay-money">实付<span class="pay-money-span" data-nowprice='' data-oldprice=''>元</span></div>
+      <div class="content-blance"><a class="blance-bt" href="javascript:;">使用余额支付</a></div>
+      <div class="content-code">
+        <div id="payCode" data-id="">
+          <div class="renovate">
+            <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/pay-time-out.png">
+            <span>点击重新获取</span>
+          </div>
+        </div>
+        <div class="pay-style"><span><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/weixin.png"></span><span><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/zhifubao.png"></span><span><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/jingdong.png"></span><span class="text">扫码支付</span></div>
+      </div>
+      <div class="bt-close">
+        <svg t="1567152543821" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10924" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12">
+          <defs>
+            <style type="text/css"></style>
+          </defs>
+          <path d="M512 438.378667L806.506667 143.893333a52.032 52.032 0 1 1 73.6 73.621334L585.621333 512l294.485334 294.485333a52.074667 52.074667 0 0 1-73.6 73.642667L512 585.621333 217.514667 880.128a52.053333 52.053333 0 1 1-73.621334-73.642667L438.378667 512 143.893333 217.514667a52.053333 52.053333 0 1 1 73.621334-73.621334L512 438.378667z" fill="" p-id="10925"></path>
+        </svg>
+      </div>
+      <div class="pay-balance">
+        <input type="radio" class="pay-code-radio" data-type="details">
+        <span class="span">钱包余额</span>
+          <span class="balance" style="color:#FC5531;font-size:14px;">0</span>
+          <div class="pay-code-tile">
+            <img src="https://csdnimg.cn/release/blogv2/dist/pc/img/pay-help.png" alt="">
+            <div class="pay-code-content">
+              <div class="span">
+                <p class="title">抵扣说明：</p>
+                <p> 1.余额是钱包充值的虚拟货币，按照1:1的比例进行支付金额的抵扣。<br> 2.余额无法直接购买下载，可以购买VIP、付费专栏及课程。</p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <a class="pay-balance-con" href="https://i.csdn.net/#/wallet/balance/recharge" target="_blank"><img src="https://csdnimg.cn/release/blogv2/dist/pc/img/recharge.png" alt=""><span>余额充值</span></a>
+    </div>
+    <div style="display:none;">
+      <img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+    </div>
+    <div class="keyword-dec-box" id="keywordDecBox"></div>
+  </body>
+    <!-- 富文本柱状图  -->
+    <link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.6.12/ckeditor/plugins/chart/chart.css" />
+    <script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.6.12/ckeditor/plugins/chart/lib/chart.min.js"></script>
+    <script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.6.12/ckeditor/plugins/chart/widget2chart.js"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/components/js/axios-83fa28cedf.min.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_highlight-8defd55d6e.min.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/components/js/pc_wap_common-be82269d23.min.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/components/js/edit_copy_code-27143fd02b.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.6.12/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-light.css">
+  <script src="https://g.csdnimg.cn/user-accusation/1.0.6/user-accusation.js" type="text/javascript"></script>
+  <script>
+    // 全局声明
+    if (window.csdn === undefined) {
+      window.csdn = {};
+    }
+    window.csdn.sideToolbar = {
+      options: {
+        report: {
+          isShow: true,
+        },
+        qr: {
+          isShow: false,
+        },
+        guide: {
+          isShow: true
+        }
+      }
+    }
+    $(function() {
+      $(document).on('click', "a.option-box[data-type='report']", function() {
+        window.csdn.loginBox.key({
+          biz: 'blog',
+          subBiz: 'other_service',
+          cb: function() {
+            window.csdn.feedback({
+              "type": 'blog',
+              "rtype": 'article',
+              "rid": articleId,
+              "reportedName": username,
+              "submitOptions": {
+                "title": articleTitle,
+                "contentUrl": articleDetailUrl
+              },
+              "callback": function() {
+                showToast({
+                  text: "感谢您的举报，我们会尽快审核！",
+                  bottom: '10%',
+                  zindex: 9000,
+                  speed: 500,
+                  time: 1500
+                })
+              }
+            })
+          }
+        })
+      });
+    })
+  </script>
+    <script src="https://g.csdnimg.cn/baidu-search/1.0.12/baidu-search.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/download/old_static/js/qrcode.js"></script>
+  <script src="https://g.csdnimg.cn/lib/qrcode/1.0.0/qrcode.min.js"></script>
+  <script src="https://g.csdnimg.cn/user-ordercart/3.0.1/user-ordercart.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/user-ordertip/5.0.3/user-ordertip.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/order-payment/4.0.5/order-payment.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/pc/js/common-a425354f6a.min.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/pc/js/detail-4c4f40c1d8.min.js" type="text/javascript"></script>
+  <script src="https://csdnimg.cn/release/blogv2/dist/pc/js/column-f5b958d226.min.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/side-toolbar/3.4/side-toolbar.js" type="text/javascript"></script>
+  <script src="https://g.csdnimg.cn/copyright/1.0.4/copyright.js" type="text/javascript"></script>
+  <script>
+    $(".MathJax").remove();
+    if ($('div.markdown_views pre.prettyprint code.hljs').length > 0) {
+      $('div.markdown_views')[0].className = 'markdown_views';
+    }
+  </script>
+  <script type="text/javascript" src="https://csdnimg.cn/release/blog_mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+        linebreaks: { automatic: true, width: "94%container" },
+        imageFont: null
+      },
+      tex2jax: {
+      preview: "none",
+      ignoreClass:"title-article"
+      },
+      mml2jax: {
+      preview: 'none'
+      }
+    });
+  </script>
+<script type="text/javascript" crossorigin src="https://g.csdnimg.cn/common/csdn-login-box/csdn-login-box.js"></script></html>
