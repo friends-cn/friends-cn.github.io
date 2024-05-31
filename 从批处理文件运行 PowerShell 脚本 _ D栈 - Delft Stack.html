@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script type="text/javascript" async="" src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/js"></script><script type="text/javascript" async="" src="https://cse.google.com/cse.js?cx=009142802549166886230:qimyevj16sq"></script><script async="" src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/gtm.js.download"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTG4DS85');</script>
+    
+    <title>从批处理文件运行 PowerShell 脚本 | D栈 - Delft Stack</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="本教程将教你从批处理文件运行 PowerShell 脚本。">
+    <meta name="keywords" content="从批处理文件运行 powershell 脚本"><meta name="author" content="Rohan Timalsina">
+    
+    <link href="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/theDocs.all.min.css" rel="stylesheet">
+    <link href="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/custom.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/css" as="style" type="text/css" onload="this.onload=null;this.rel=&#39;stylesheet&#39;">
+    <noscript><link href='https://fonts.googleapis.com/css?family=Raleway:100,300,400,500%7CLato:300,400' rel='stylesheet' type='text/css'></noscript>
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/loadCSS.min.js.download" async=""></script>
+    
+    <link rel="apple-touch-icon" href="https://www.delftstack.com/assets/img/favicon.png">
+    <link rel="icon" href="https://www.delftstack.com/assets/img/favicon.png">
+    <link rel="canonical" href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="de" href="https://www.delftstack.com/de/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="en" href="https://www.delftstack.com/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="es" href="https://www.delftstack.com/es/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="fr" href="https://www.delftstack.com/fr/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="ja" href="https://www.delftstack.com/ja/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="zh" href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="zh-tw" href="https://www.delftstack.com/zh-tw/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <link rel="alternate" hreflang="en-us" href="https://www.delftstack.com/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <meta property="og:locale" content="zh">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="从批处理文件运行 PowerShell 脚本">
+    <meta property="og:description" content="本教程将教你从批处理文件运行 PowerShell 脚本。">
+    <meta property="og:url" content="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/">
+    <meta property="og:site_name" content="D栈 - Delft Stack">
+    <meta property="article:published_time" content="2022-05-16T00:00:00">
+    <meta property="article:modified_time" content="2023-01-30T00:00:00">
+    <meta property="og:updated_time" content="2023-01-30T00:00:00">
+    <meta property="article:author" content="Rohan Timalsina">
+    <meta property="og:image" content="https://www.delftstack.com/img/PowerShell/feature-image---run-a-powershell-script-from-a-batch-file.webp">
+    <meta property="og:image:width" content="960">
+    <meta property="og:image:height" content="540">
+    <script type="application/ld+json">{
+	    "@context": "https://schema.org",
+	    "@graph": [
+	        {
+	            "@type": "Organization",
+	            "@id": "https://www.delftstack.com/#organization",
+	            "name": "D栈 - Delft Stack",
+	            "url": "https://www.delftstack.com/",
+	            "logo": "https://www.delftstack.com/assets/img/logo.png",
+	            "description": "免费但优质的技术网站，涵盖诸如Python，Javascript，C ++，GIT等语言。 DelfStack是一个学习不同编程语言的网站。",
+	            "image": {
+	                "@type": "ImageObject",
+	                "url": "https://www.delftstack.com/assets/img/logo.png"
+	            },
+	            "sameAs" : [ 
+	                "https://www.facebook.com/delftstack",
+	                "https://www.twitter.com/delft_stack",
+	                "https://www.github.com/DelftStack"
+	            ]
+	        },
+	        {
+	            "@type": "WebSite",
+	            "@id": "https://www.delftstack.com/#website",
+	            "url": "https://www.delftstack.com/",
+	            "name": "D栈 - Delft Stack",
+	            "publisher": {
+	                "@id": "https://www.delftstack.com/#person"
+	            },
+	            "inLanguage": "zh"
+	        },
+	        {
+	            "@type": "BreadcrumbList",
+	            "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#breadcrumb",
+	            "itemListElement": [
+	                {
+	                    "@type": "ListItem",
+	                    "position": 1 ,
+	                    "item": {
+	                        "@id": "https://www.delftstack.com/",
+	                        "name": "Home"
+	                    }
+	                },
+	                {
+	                    "@type": "ListItem",
+	                    "position": 2 ,
+	                    "item": {
+	                        "@id": "https://www.delftstack.com/zh/",
+	                        "name": "Zh"
+	                    }
+	                },
+	                {
+	                    "@type": "ListItem",
+	                    "position": 3 ,
+	                    "item": {
+	                        "@id": "https://www.delftstack.com/zh/howto/",
+	                        "name": "Howto"
+	                    }
+	                },
+	                {
+	                    "@type": "ListItem",
+	                    "position": 4 ,
+	                    "item": {
+	                        "@id": "https://www.delftstack.com/zh/howto/powershell/",
+	                        "name": "Powershell"
+	                    }
+	                },
+	                {
+	                    "@type": "ListItem",
+	                    "position": 5 ,
+	                    "item": {
+	                        "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/",
+	                        "name": "Run a Powershell Script From a Batch File"
+	                    }
+	                }
+	            ]
+	        },
+	        {
+	            "@type": "ImageObject",
+	            "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#primaryImage",
+	            "url": "https://www.delftstack.com/img/PowerShell/feature-image---run-a-powershell-script-from-a-batch-file.webp",
+	            "width": 960,
+	            "height": 540
+	        },
+	        {
+	            "@type": "WebPage",
+	            "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#webpage",
+	            "url": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/",
+	            "name": "从批处理文件运行 PowerShell 脚本 | D栈 - Delft Stack",
+	            "datePublished": "2022-05-16T00:00:00",
+	            "dateModified": "2023-01-30T00:00:00",
+	            "isPartOf": {
+	                "@id": "https://www.delftstack.com/#website"
+	            },
+	            "primaryImageOfPage": {
+	                "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#primaryImage"
+	            },
+	            "inLanguage": "zh",
+	            "breadcrumb": {
+	                "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#breadcrumb"
+	            }
+	        },
+	        {
+	            "@type":"TechArticle",
+	            "headline": "从批处理文件运行 PowerShell 脚本",
+	            "datePublished": "2022-05-16T00:00:00",
+	            "dateModified": "2023-01-30T00:00:00",
+	            "author": {
+	                "@type": "Person",
+	                "name": "Rohan Timalsina",
+	                "url": "https://www.delftstack.com/zh/author/rohan-timalsina/"
+	            },
+	            "publisher": {
+	                "@id": "https://www.delftstack.com/#organization"
+	            },
+	            "description": "本教程将教你从批处理文件运行 PowerShell 脚本。",
+	            "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#richSnippet",
+	            "isPartOf": {
+	                "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#webpage"
+	            },
+	            "image": {
+	                "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#primaryImage"
+	            },
+	            "inLanguage": "zh",
+	            "mainEntityOfPage": {
+	                "@id": "https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#webpage"
+	            }
+	        }
+	    ]
+	}
+	</script>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="https://www.delftstack.com/img/PowerShell/feature-image---run-a-powershell-script-from-a-batch-file.webp">
+    <meta property="twitter:title" content="从批处理文件运行 PowerShell 脚本">
+    <meta property="twitter:description" content="本教程将教你从批处理文件运行 PowerShell 脚本。"><script data-cfasync="false" type="text/javascript">
+(function(w, d) {
+	var s = d.createElement('script');
+	s.src = '//cdn.adpushup.com/45492/adpushup.js';
+	s.crossOrigin='anonymous'; 
+	s.type = 'text/javascript'; s.async = true;
+	(d.getElementsByTagName('head')[0] || d.getElementsByTagName('body')[0]).appendChild(s);
+	w.adpushup = w.adpushup || {que:[]};
+})(window, document);
+
+</script><script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/adpushup.js.download" crossorigin="anonymous" type="text/javascript" async=""></script><script>
+    var toc = document.querySelector('.toc');
+    var style = document.createElement('style');
+    style.textContent = '.toc::before { content: "目录"; }';
+    document.head.appendChild(style);
+</script><style>.toc::before { content: "目录"; }</style>
+  <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+  <body>
+    
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTG4DS85"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+          <header class="site-header sticky" style="padding-top: 80px;">
+
+      
+      <nav class="navbar navbar-default">
+        <div class="container">
+
+          
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+              <span class="glyphicon glyphicon-option-vertical"></span>
+            </button>
+
+            <button type="button" class="navbar-toggle for-sidebar" data-toggle="offcanvas">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand" href="https://www.delftstack.com/zh/"><img src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/logo.png" alt="logo"></a>
+          </div>
+          
+
+          
+          <div id="navbar" class="navbar-collapse collapse" aria-expanded="true" role="banner">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.delftstack.com/zh/tutorial/">教程列表</a></li>
+                <li><a href="https://www.delftstack.com/zh/howto/">技巧贴士</a></li>
+                <li><a href="https://www.delftstack.com/zh/api/">函数参考</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/" aria-expanded="false"> zh<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="https://www.delftstack.com/de/howto/powershell/run-a-powershell-script-from-a-batch-file/">DE</a></li>
+                      <li><a href="https://www.delftstack.com/howto/powershell/run-a-powershell-script-from-a-batch-file/">EN</a></li>
+                      <li><a href="https://www.delftstack.com/es/howto/powershell/run-a-powershell-script-from-a-batch-file/">ES</a></li>
+                      <li><a href="https://www.delftstack.com/fr/howto/powershell/run-a-powershell-script-from-a-batch-file/">FR</a></li>
+                      <li><a href="https://www.delftstack.com/ja/howto/powershell/run-a-powershell-script-from-a-batch-file/">JA</a></li>
+                      <li><a href="https://www.delftstack.com/zh-tw/howto/powershell/run-a-powershell-script-from-a-batch-file/">ZH-TW</a></li>
+                  </ul>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </nav>
+      
+    </header>
+    
+    <main class="container">
+      <div class="row">
+      
+        
+    
+<aside class="col-md-3 col-sm-3 sidebar"><div id="gcse">
+    <script>
+      (function() {
+        var cx = '009142802549166886230:qimyevj16sq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+<gcse:searchbox-only></gcse:searchbox-only>
+</div>
+    
+<div class="row" id="left_sidebar_session_list">
+        <div class="col-sm-12 text-muted">
+          <a href="https://www.delftstack.com/zh/tutorial/"><h4>教程</h4></a><a href="https://www.delftstack.com/zh/tutorial/python-3-basic-tutorial/" class="badge badge-light text-muted">Python 3 Basic </a><a href="https://www.delftstack.com/zh/tutorial/python-advanced-tutorial/" class="badge badge-light text-muted">Python Advanced </a><a href="https://www.delftstack.com/zh/tutorial/tkinter-tutorial/" class="badge badge-light text-muted">Tkinter </a><a href="https://www.delftstack.com/zh/tutorial/python-modules-tutorial/" class="badge badge-light text-muted">Python Modules </a><a href="https://www.delftstack.com/zh/tutorial/javascript/" class="badge badge-light text-muted">JavaScript</a><a href="https://www.delftstack.com/zh/tutorial/python-numpy/" class="badge badge-light text-muted">Python Numpy</a><a href="https://www.delftstack.com/zh/tutorial/git/" class="badge badge-light text-muted">Git</a><a href="https://www.delftstack.com/zh/tutorial/matplotlib/" class="badge badge-light text-muted">Matplotlib</a><a href="https://www.delftstack.com/zh/tutorial/pyqt5/" class="badge badge-light text-muted">PyQt5</a><a href="https://www.delftstack.com/zh/tutorial/data-structure/" class="badge badge-light text-muted">Data Structure</a><a href="https://www.delftstack.com/zh/tutorial/algorithm/" class="badge badge-light text-muted">Algorithm</a></div>
+        <div class="col-sm-12 text-muted">
+          <a href="https://www.delftstack.com/zh/howto/"><h4>贴士文章</h4></a><a href="https://www.delftstack.com/zh/howto/rust/" class="badge badge-light text-muted">Rust</a><a href="https://www.delftstack.com/zh/howto/python-pygame/" class="badge badge-light text-muted">Python Pygame</a><a href="https://www.delftstack.com/zh/howto/python/" class="badge badge-light text-muted">Python</a><a href="https://www.delftstack.com/zh/howto/python-tkinter/" class="badge badge-light text-muted">Python Tkinter</a><a href="https://www.delftstack.com/zh/howto/batch/" class="badge badge-light text-muted">Batch</a><a href="https://www.delftstack.com/zh/howto/powershell/" class="badge badge-light text-muted">PowerShell</a><a href="https://www.delftstack.com/zh/howto/python-pandas/" class="badge badge-light text-muted">Python Pandas</a><a href="https://www.delftstack.com/zh/howto/numpy/" class="badge badge-light text-muted">Numpy</a><a href="https://www.delftstack.com/zh/howto/python-flask/" class="badge badge-light text-muted">Python Flask</a><a href="https://www.delftstack.com/zh/howto/django/" class="badge badge-light text-muted">Django</a><a href="https://www.delftstack.com/zh/howto/matplotlib/" class="badge badge-light text-muted">Matplotlib</a><a href="https://www.delftstack.com/zh/howto/plotly/" class="badge badge-light text-muted">Plotly</a><a href="https://www.delftstack.com/zh/howto/docker/" class="badge badge-light text-muted">Docker</a><a href="https://www.delftstack.com/zh/howto/seaborn/" class="badge badge-light text-muted">Seaborn</a><a href="https://www.delftstack.com/zh/howto/matlab/" class="badge badge-light text-muted">Matlab</a><a href="https://www.delftstack.com/zh/howto/linux/" class="badge badge-light text-muted">Linux</a><a href="https://www.delftstack.com/zh/howto/git/" class="badge badge-light text-muted">Git</a><a href="https://www.delftstack.com/zh/howto/c/" class="badge badge-light text-muted">C</a><a href="https://www.delftstack.com/zh/howto/cpp/" class="badge badge-light text-muted">Cpp</a><a href="https://www.delftstack.com/zh/howto/html/" class="badge badge-light text-muted">HTML</a><a href="https://www.delftstack.com/zh/howto/javascript/" class="badge badge-light text-muted">JavaScript</a><a href="https://www.delftstack.com/zh/howto/jquery/" class="badge badge-light text-muted">jQuery</a><a href="https://www.delftstack.com/zh/howto/typescript/" class="badge badge-light text-muted">TypeScript</a><a href="https://www.delftstack.com/zh/howto/angular/" class="badge badge-light text-muted">Angular</a><a href="https://www.delftstack.com/zh/howto/react/" class="badge badge-light text-muted">React</a><a href="https://www.delftstack.com/zh/howto/css/" class="badge badge-light text-muted">CSS</a><a href="https://www.delftstack.com/zh/howto/php/" class="badge badge-light text-muted">PHP</a><a href="https://www.delftstack.com/zh/howto/java/" class="badge badge-light text-muted">Java</a><a href="https://www.delftstack.com/zh/howto/go/" class="badge badge-light text-muted">Go</a><a href="https://www.delftstack.com/zh/howto/node.js/" class="badge badge-light text-muted">Node.js</a><a href="https://www.delftstack.com/zh/howto/kotlin/" class="badge badge-light text-muted">Kotlin</a><a href="https://www.delftstack.com/zh/howto/csharp/" class="badge badge-light text-muted">Csharp</a><a href="https://www.delftstack.com/zh/howto/ruby/" class="badge badge-light text-muted">Ruby</a><a href="https://www.delftstack.com/zh/howto/arduino/" class="badge badge-light text-muted">Arduino</a><a href="https://www.delftstack.com/zh/howto/mongodb/" class="badge badge-light text-muted">MongoDB</a><a href="https://www.delftstack.com/zh/howto/mysql/" class="badge badge-light text-muted">MySQL</a><a href="https://www.delftstack.com/zh/howto/postgres/" class="badge badge-light text-muted">Postgres</a><a href="https://www.delftstack.com/zh/howto/r/" class="badge badge-light text-muted">R</a><a href="https://www.delftstack.com/zh/howto/vba/" class="badge badge-light text-muted">VBA</a><a href="https://www.delftstack.com/zh/howto/scala/" class="badge badge-light text-muted">Scala</a><a href="https://www.delftstack.com/zh/howto/raspberry-pi/" class="badge badge-light text-muted">Raspberry Pi</a></div>
+        <div class="col-sm-12 text-muted">
+          <a href="https://www.delftstack.com/zh/api/"><h4>函数参考</h4></a><a href="https://www.delftstack.com/zh/api/python-pandas/" class="badge badge-light text-muted">Python Pandas</a><a href="https://www.delftstack.com/zh/api/numpy/" class="badge badge-light text-muted">Numpy</a></div>
+</div>
+
+  
+<div class="ad-container">
+</div>
+
+</aside>
+
+
+    
+
+        
+        <div class="col-md-9 col-sm-9 main-content" role="main">
+        
+
+<header>
+    <h1 style="margin-bottom: 10px">从批处理文件运行 PowerShell 脚本</h1>
+    <div>
+    <ol class="breadcrumb">
+      <li>
+        <a href="https://www.delftstack.com/zh/"><i class="fa fa-lg fa-home"></i></a>
+      </li>
+    <li>
+      <a href="https://www.delftstack.com/zh/howto/">贴士文章</a>
+    </li>
+        
+    <li>
+      <a href="https://www.delftstack.com/zh/howto/powershell/">PowerShell 贴士</a>
+    </li>
+        
+    <li class="active">
+      <a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/">从批处理文件运行 PowerShell 脚本</a>
+    </li>
+    </ol>
+</div>
+    <div class="mb-0">
+    <span class="text-contrast">
+    <span class="fa fa-pencil-square-o"></span><a class="ml-2 text-contrast" href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#author">Rohan Timalsina</a><span class="ml-2 fa fa-clock-o"></span>
+    <span class="ml-1">2023年1月30日</span>
+    </span></div>
+<div class="mb-0">
+    <span class="text-contrast">
+    
+<span class="fa fa-tags" aria-hidden="true"></span>
+    <a href="https://www.delftstack.com/zh/tags/powershell/" rel="nofollow" class="badge badge-light">PowerShell</a>
+    <a href="https://www.delftstack.com/zh/tags/powershell-script/" rel="nofollow" class="badge badge-light">PowerShell Script</a>
+
+    
+    <a href="http://www.facebook.com/sharer.php?src=bm&amp;u=https%3a%2f%2fwww.delftstack.com%2fzh%2fhowto%2fpowershell%2frun-a-powershell-script-from-a-batch-file%2f&amp;t=%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c%20PowerShell%20%e8%84%9a%e6%9c%ac" onclick="window.open(this.href, &#39;facebook-share-dialog&#39;, &#39;width=550, height=350, menubar=no, toolbar=no, scrollbars=yes&#39;); return false;" id="share-fb" class=""><i class="fa fa-lg fa-facebook-square text-muted"></i></a>
+    <a href="https://twitter.com/intent/tweet/?text=PowerShell%20%e8%b4%b4%e5%a3%ab-%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c%20PowerShell%20%e8%84%9a%e6%9c%ac&amp;url=https%3a%2f%2fwww.delftstack.com%2fzh%2fhowto%2fpowershell%2frun-a-powershell-script-from-a-batch-file%2f&amp;hashtags=web,development" onclick="window.open(this.href, &#39;twitter-share-dialog&#39;, &#39;width=550, height=350, menubar=no, toolbar=no, scrollbars=yes&#39;); return false;" id="share-tw" class="ml-1"><i class="fa fa-lg fa-twitter-square text-muted"></i></a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fwww.delftstack.com%2fzh%2fhowto%2fpowershell%2frun-a-powershell-script-from-a-batch-file%2f&amp;title=PowerShell%20%e8%b4%b4%e5%a3%ab-%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c%20PowerShell%20%e8%84%9a%e6%9c%ac&amp;source=https%3a%2f%2fwww.delftstack.com%2fzh%2fhowto%2fpowershell%2frun-a-powershell-script-from-a-batch-file%2f&amp;summary=Short%20summary" onclick="window.open(this.href, &#39;linkedin-share-dialog&#39;, &#39;width=550, height=350, menubar=no, toolbar=no, scrollbars=yes&#39;); return false;" id="share-li" class="ml-1"><i class="fa fa-lg fa-linkedin-square text-muted"></i></a>
+
+    </span>
+</div>
+</header>
+<div style="padding-bottom:5px;">
+
+
+  <ol class="toc">
+      
+        <li>
+          <a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%e4%bd%bf%e7%94%a8--file-%e5%8f%82%e6%95%b0%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c-powershell-%e8%84%9a%e6%9c%ac">
+            使用 <code>-File</code> 参数从批处理文件运行 PowerShell 脚本
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%e4%bd%bf%e7%94%a8-remotesigned-%e4%bd%9c%e4%b8%ba--executionpolicy-%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c-powershell-%e8%84%9a%e6%9c%ac">
+            使用 <code>RemoteSigned</code> 作为 <code>-ExecutionPolicy</code> 从批处理文件运行 PowerShell 脚本
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%e4%bd%bf%e7%94%a8-bypass-%e5%bc%80%e5%85%b3%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c-powershell-%e8%84%9a%e6%9c%ac">
+            使用 <code>Bypass</code> 开关从批处理文件运行 PowerShell 脚本
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%e9%80%9a%e8%bf%87%e4%bb%a5%e7%ae%a1%e7%90%86%e5%91%98%e8%ba%ab%e4%bb%bd%e6%89%93%e5%bc%80-powershell-%e4%bb%8e%e6%89%b9%e5%a4%84%e7%90%86%e6%96%87%e4%bb%b6%e8%bf%90%e8%a1%8c-powershell-%e8%84%9a%e6%9c%ac">
+            通过以管理员身份打开 PowerShell 从批处理文件运行 PowerShell 脚本
+          </a>
+        </li>
+      
+  </ol>
+
+<figure class="">
+    <img class="img16by9 fit-contain" alt="从批处理文件运行 PowerShell 脚本" src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/feature-image---run-a-powershell-script-from-a-batch-file.webp" width="1920" height="1080">
+</figure>
+<p>PowerShell 脚本是一个使用 <code>.ps1</code> 扩展名的文本文件，其中包含一组命令。PowerShell 按顺序执行这些命令。</p>
+
+<p>批处理文件是使用 <code>.bat</code> 扩展名的文本文件。它还包含一组按顺序执行的命令。</p>
+<p>这些命令可以通过打开 <code>.bat</code> 文件来执行。本教程将教你从批处理文件运行 PowerShell 脚本。</p>
+<p>我们创建了一个 PowerShell 脚本 <code>myscript.ps1</code>，其中包含以下命令。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#008000">Write-Host</span> <span style="color:#ba2121">"Your script is executed successfully."</span>
+</span></span></code></pre></div><p>我们还创建了一个批处理文件 <code>test.bat</code> 来运行上述 PowerShell 脚本。我们将使用批处理文件 <code>test.bat</code> 运行 PowerShell 脚本 <code>myscript.ps1</code>。</p>
+<h2 id="使用--file-参数从批处理文件运行-powershell-脚本"><a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%E4%BD%BF%E7%94%A8--file-%E5%8F%82%E6%95%B0%E4%BB%8E%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C-powershell-%E8%84%9A%E6%9C%AC">使用 <code>-File</code> 参数从批处理文件运行 PowerShell 脚本</a></h2>
+<p>你可以使用 <code>-File</code> 参数调用 PowerShell 脚本。这是从命令提示符运行 PowerShell 脚本的简单命令。</p>
+<p><code>test.bat</code> 文件中使用以下命令来运行 PowerShell 脚本。 <code>@echo off</code> 命令禁用回显或阻止显示批处理文件内容。</p>
+<p><code>pause</code> 命令会停止批处理文件的执行，直到你按下除 <kbd>Ctrl</kbd>、<kbd>Shift</kbd> 或 <kbd>NumberLock</kbd> 之外的任何键。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#19177c">@echo</span> off
+</span></span><span style="display:flex;"><span>powershell <span style="color:#666">-File</span> C:\New\myscript.ps1
+</span></span><span style="display:flex;"><span>pause
+</span></span></code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-text"><span class="language-name"> text</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-text" data-lang="text"><span style="display:flex;"><span>Your script is executed successfully.
+</span></span><span style="display:flex;"><span>Press any key to continue . . .
+</span></span></code></pre></div><!--adsense-->
+<h2 id="使用-remotesigned-作为--executionpolicy-从批处理文件运行-powershell-脚本"><a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%E4%BD%BF%E7%94%A8-remotesigned-%E4%BD%9C%E4%B8%BA--executionpolicy-%E4%BB%8E%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C-powershell-%E8%84%9A%E6%9C%AC">使用 <code>RemoteSigned</code> 作为 <code>-ExecutionPolicy</code> 从批处理文件运行 PowerShell 脚本</a></h2>
+<p>你可以将 <code>RemoteSigned</code> 设置为 <code>-ExecutionPolicy</code> 以从批处理文件运行 PowerShell 脚本。 <code>-ExecutionPolicy</code> 参数指定 PowerShell 执行策略。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#19177c">@echo</span> off
+</span></span><span style="display:flex;"><span>powershell -ExecutionPolicy RemoteSigned <span style="color:#666">-File</span> C:\New\myscript.ps1
+</span></span><span style="display:flex;"><span>pause
+</span></span></code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-text"><span class="language-name"> text</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-text" data-lang="text"><span style="display:flex;"><span>Your script is executed successfully.
+</span></span><span style="display:flex;"><span>Press any key to continue . . .
+</span></span></code></pre></div><h2 id="使用-bypass-开关从批处理文件运行-powershell-脚本"><a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%E4%BD%BF%E7%94%A8-bypass-%E5%BC%80%E5%85%B3%E4%BB%8E%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C-powershell-%E8%84%9A%E6%9C%AC">使用 <code>Bypass</code> 开关从批处理文件运行 PowerShell 脚本</a></h2>
+<p>你还可以使用 <code>Bypass</code> 作为执行策略从批处理文件运行 PowerShell 脚本。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#19177c">@echo</span> off
+</span></span><span style="display:flex;"><span>powershell -ExecutionPolicy Bypass <span style="color:#666">-File</span> C:\New\myscript.ps1
+</span></span><span style="display:flex;"><span>pause
+</span></span></code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-text"><span class="language-name"> text</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-text" data-lang="text"><span style="display:flex;"><span>Your script is executed successfully.
+</span></span><span style="display:flex;"><span>Press any key to continue . . .
+</span></span></code></pre></div><!--adsense-->
+<p>或者，你也可以运行以下命令。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#19177c">@echo</span> off
+</span></span><span style="display:flex;"><span>PowerShell -NoProfile -ExecutionPolicy Bypass -Command <span style="color:#ba2121">"&amp; 'C:\New\myscript.ps1'"</span>
+</span></span><span style="display:flex;"><span>pause
+</span></span></code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-text"><span class="language-name"> text</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-text" data-lang="text"><span style="display:flex;"><span>Your script is executed successfully.
+</span></span><span style="display:flex;"><span>Press any key to continue . . .
+</span></span></code></pre></div><h2 id="通过以管理员身份打开-powershell-从批处理文件运行-powershell-脚本"><a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#%E9%80%9A%E8%BF%87%E4%BB%A5%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%E6%89%93%E5%BC%80-powershell-%E4%BB%8E%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C-powershell-%E8%84%9A%E6%9C%AC">通过以管理员身份打开 PowerShell 从批处理文件运行 PowerShell 脚本</a></h2>
+<p>以下命令以管理员身份打开 PowerShell 以运行 PowerShell 脚本。当你打开批处理文件并选择<code>是</code>时，输出将显示在 Windows PowerShell 上。</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-powershell"><span class="language-name" style="transform: translate(0px, 0px);"> powershell</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!" style="transform: translate(0px, 0px);">Copy</a><code class=" language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#19177c">@echo</span> off
+</span></span><span style="display:flex;"><span>PowerShell -NoProfile -ExecutionPolicy Bypass -Command <span style="color:#ba2121">"&amp; {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""C:\New\myscript.ps1""' -Verb RunAs}"</span>
+</span></span><span style="display:flex;"><span>ps1<span style="">'</span><span style="color:#ba2121">"
+</span></span></span><span style="display:flex;"><span><span style="color:#ba2121">pause
+</span></span></span></code></pre></div><p>输出：</p>
+<div class="highlight"><pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;" class=" language-text"><span class="language-name"> text</span><a class="btn btn-sm btn-purple clipboard-copy" data-original-title="Copied!">Copy</a><code class=" language-text" data-lang="text"><span style="display:flex;"><span>Your script is executed successfully.
+</span></span></code></pre></div>
+</div>
+<div class="panel panel-primary" id="author">
+    <div class="panel-heading">作者： <a href="https://www.delftstack.com/zh/author/rohan-timalsina/"><strong>Rohan Timalsina</strong></a></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-12 col-sm-3 align-self-center">
+                <a href="https://www.delftstack.com/zh/author/rohan-timalsina/"><img loading="lazy" src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/Rohan-Timalsina.webp" width="862" height="862" class="d-none d-md-block img-circle img-fluid w-66 mb-0 mx-auto" alt="Rohan Timalsina avatar"></a>
+                <a href="https://www.delftstack.com/zh/author/rohan-timalsina/"><img loading="lazy" src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/Rohan-Timalsina.webp" width="862" height="862" class="d-block d-md-none img-circle img-fluid w-33 mb-0 mx-auto" alt="Rohan Timalsina avatar"></a>
+            </div>
+            <div class="col-12 col-sm-9 align-self-center mt-3"><p>Rohan is a learner, problem solver, and web developer. He loves to write and share his understanding.</p>
+                <a href="https://www.linkedin.com/in/rohantimalsina/" class=""><i class="fa fa-lg fa-linkedin-square mr-1 text-muted"></i>LinkedIn</a>
+                <a href="https://www.rohantimalsina.com.np/" class=""><i class="fa fa-internet-explorer mr-1 text-muted"></i>Website</a>
+            </div>
+        </div>
+    </div>
+</div>
+        <h2><a href="https://www.delftstack.com/zh/tags/powershell-script/" rel="nofollow">相关文章 - PowerShell Script</a></h2>
+        <ul>
+                <li><a href="https://www.delftstack.com/zh/howto/powershell/get-the-file-system-location-of-a-powershell-script/" title="获取 PowerShell 脚本的文件系统位置">获取 PowerShell 脚本的文件系统位置</a></li>
+                <li><a href="https://www.delftstack.com/zh/howto/powershell/pass-an-argument-to-a-powershell-script/" title="向 PowerShell 脚本传递一个参数">向 PowerShell 脚本传递一个参数</a></li>
+                <li><a href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script/" title="运行 PowerShell 脚本">运行 PowerShell 脚本</a></li>
+                <li><a href="https://www.delftstack.com/zh/howto/powershell/terminate-a-script-in-powershell/" title="在 Windows PowerShell 中终止脚本">在 Windows PowerShell 中终止脚本</a></li>
+        </ul>
+
+        
+
+
+        </div>
+        
+      
+      </div>
+    </main>    
+    <footer class="site-footer">
+      <div class="container">
+        <a id="scroll-up" href="https://www.delftstack.com/zh/howto/powershell/run-a-powershell-script-from-a-batch-file/#"><i class="fa fa-angle-up"></i></a>
+
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <p>Copyright © 2024. All right reserved</p>
+          </div>
+          <div class="col-md-8 col-sm-8">
+            <ul class="footer-menu">
+              
+              <li><a href="https://www.delftstack.com/zh/about-us/">关于本站</a></li>
+              
+              <li><a href="https://www.delftstack.com/zh/write-for-us/">作者招募</a></li>
+              
+              <li><a href="https://www.delftstack.com/zh/privacy-policy/">隐私政策</a></li>
+              
+              <li><a href="https://www.delftstack.com/zh/contact/">联系方式</a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+    
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/jquery.min.js.download"></script>
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/theDocs.all.min.js.download"></script>
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/custom.js.download"></script>
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/delftstack.js.download"></script>
+    <script src="./从批处理文件运行 PowerShell 脚本 _ D栈 - Delft Stack_files/jquery.bootstrap-dropdown-hover.min.js.download"></script>
+    
+    <script>
+        
+        $.fn.bootstrapDropdownHover();
+        
+    </script>
+    <script>
+        $('.navbar-default .navbar-nav > li > a').click( function() {
+            location.href = $(this).attr('href');
+        })
+    </script>
+  <script>
+    window.onload = function() {
+        var vdoPlayerDiv = document.querySelector('[id^="vdo_ai"][id$="ima-ad-container"]');
+        if (!vdoPlayerDiv)
+        {
+            document.getElementById('v-delftstack-v0-0').style.display = 'none';
+        }
+        setTimeout(function() {
+            if (!vdoPlayerDiv)
+            {
+                document.getElementById('v-delftstack-v0-0').style.display = 'none';
+            }
+        }, 4000);
+        setTimeout(function() {
+            if (!vdoPlayerDiv)
+            {
+                document.getElementById('v-delftstack-v0-0').style.display = 'none';
+            }
+        }, 8000);
+    };
+</script>
+
+</body></html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="zh-cn" style="--olcb-folder-code-block-max-height: 80vh; --cnb-code-bg: rgb(245, 245, 245); --cnb-code-font-size: 12px; --cnb-code-color: rgb(68, 68, 68);"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <meta name="keywords" content="cmd绕过powershell脚本执行限制,cmd隐藏powershell脚本,windows">
+    <meta name="description" content="powershell脚本执行绕过powershell下脚本执行限制(cmd下执行) powershell脚本运行方式有两种,一种是powshell中运行,另一种是在cmd中(在某些情况下相当有用) powershell一般默认是禁止脚本运行,想要修改允许脚本运行,需要以管理员权限运行powershe">
+    <meta property="og:description" content="powershell脚本执行绕过powershell下脚本执行限制(cmd下执行) powershell脚本运行方式有两种,一种是powshell中运行,另一种是在cmd中(在某些情况下相当有用) powershell一般默认是禁止脚本运行,想要修改允许脚本运行,需要以管理员权限运行powershe">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园</title>
+    <link rel="canonical" href="https://www.cnblogs.com/yuzly/p/10440718.html">
+    <link rel="shortcut icon" id="favicon" href="https://assets.cnblogs.com/favicon.svg?v=2" type="image/svg+xml">
+    
+    <style>#home :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs), :not(.cnblogs_code):not(.cnblogs_Highlighter)>pre:not([highlighted]):not([class*="brush:"]) code:not(.hljs) {background: rgb(245, 245, 245);
+        padding: 12px;
+        border: 0.8px solid rgb(204, 204, 204);
+        border-radius: 3px;
+        border-color: transparent;
+        color: rgb(68, 68, 68);
+        font-family: "Courier New", sans-serif;
+        font-size: 12px</style><link rel="stylesheet" href="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/blog-common.min.css">
+    
+
+    <link id="MainCss" rel="stylesheet" href="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/bundle-red_autumnal_leaves.min.css">
+        <link id="highlighter-theme-cnblogs" type="text/css" rel="stylesheet" href="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/cnblogs.css">
+    
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/bundle-red_autumnal_leaves-mobile.min.css">
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/yuzly/rss">
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/yuzly/rsd.xml">
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/yuzly/wlwmanifest.xml">
+    <script type="text/javascript" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/encoder.js.download"></script><script>
+        var currentBlogId = 489494;
+        var currentBlogApp = 'yuzly';
+        var isLogined = false;
+        var isBlogOwner = false;
+        var skinName = 'red_autumnal_leaves';
+        var visitorUserId = '';
+        var hasCustomScript = false;
+        window.cb_enable_mathjax = false;
+        window.mathEngine = 0;
+        window.codeHighlightEngine = 1;
+        window.enableCodeLineNumber = false;
+        window.codeHighlightTheme = 'cnblogs';
+        window.darkModeCodeHighlightTheme = 'vs2015';
+        window.isDarkCodeHighlightTheme = false;
+        window.isDarkModeCodeHighlightThemeDark = true;
+        window.isDisableCodeHighlighter = false;
+        window.enableCodeThemeTypeFollowSystem = false;
+        window.enableMacStyleCodeBlock = false;
+    </script>
+        <script>
+            window.currentPostId = 10440718;
+            window.currentPostDateAdded = '2019-02-27 21:22';
+        </script>
+    <script src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/jquery-3.3.1.min.js.download"></script>
+    <script src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/blog-common.min.js.download"></script><style>.medium-zoom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 300ms;
+  will-change: opacity;
+}
+
+.medium-zoom--opened .medium-zoom-overlay {
+  cursor: pointer;
+  cursor: zoom-out;
+  opacity: 1;
+}
+
+.medium-zoom-image {
+  cursor: pointer;
+  cursor: zoom-in;
+  /*
+    The `transition` is marked as "!important" for the animation to happen
+    even though it's overriden by another inline `transition` style attribute.
+
+    This is problematic with frameworks that generate inline styles on their
+    images (e.g. Gatsby).
+
+    See https://github.com/francoischalifour/medium-zoom/issues/110
+   */
+  transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1) !important;
+}
+
+.medium-zoom-image--hidden {
+  visibility: hidden;
+}
+
+.medium-zoom-image--opened {
+  position: relative;
+  cursor: pointer;
+  cursor: zoom-out;
+  will-change: transform;
+}
+</style><script id="hljs-script" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/highlight.min.js.download" type="text/javascript" async=""></script>
+    
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1592114/201902/1592114-20190227205455369-165361925.jpg"></head>
+<body class="skin-red_autumnal_leaves has-navbar has-bannerbar">
+    <a name="top"></a>
+        <a href="https://www.cnblogs.com/cmt/p/18204310" onclick="countCreativeClicks(&#39;C0-阿里云-征文活动&#39;)" target="_blank" rel="nofollow">
+            <div class="bannerbar forpc" style="background-size: contain;background-image: url(https://img2024.cnblogs.com/blog/35695/202405/35695-20240524121614762-1692171159.jpg);padding-left: 15px;">
+                <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/35695-20240521130941177-794658493.jpg" style="" onload="countCreativeImpressions(&#39;C0-阿里云-征文活动&#39;)">
+                
+                
+                <span id="c0_impression" style="display:none"></span>
+            </div>
+        </a>
+    <div id="top_nav" class="navbar forpc">
+        <nav id="nav_main" class="navbar-main">
+            <ul id="nav_left" class="navbar-list navbar-left">
+                <li class="navbar-branding">
+                    <a href="https://www.cnblogs.com/" title="开发者的网上家园" role="banner">
+                        <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/logo.svg" alt="博客园Logo">
+                    </a>
+                </li>
+                <li><a href="https://cnblogs.vip/">会员</a></li>
+                <li><a href="https://www.cnblogs.com/cmt/articles/18197617">众包</a></li>
+                <li>
+                    <a href="https://news.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-news&#39;)">新闻</a>
+                </li>
+                <li>
+                    <a href="https://q.cnblogs.com/" onclick="countClicks(&#39;nav&#39;, &#39;skin-navbar-q&#39;)">博问</a>
+                </li>
+                    <li>
+                        <a href="https://ai.hanghang.com/page/4649915" target="_blank">AI培训</a>
+                    </li>
+                <li><a href="https://market.cnblogs.com/" target="_blank">云市场</a></li>
+            </ul>
+            <ul id="nav_right" class="navbar-list navbar-right">
+                <li>
+                    <form id="zzk_search" class="navbar-search dropdown" action="https://zzk.cnblogs.com/s" method="get" role="search">
+                        <input name="w" id="zzk_search_input" placeholder="代码改变世界" type="search" tabindex="3" autocomplete="off">
+                        <button id="zzk_search_button" onclick="window.navbarSearchManager.triggerActiveOption()">
+                            <img id="search_icon" class="focus-hidden" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/search.svg" alt="搜索">
+                            <img class="hidden focus-visible" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/enter.svg" alt="搜索">
+                        </button>
+                        <ul id="navbar_search_options" class="dropdown-menu quick-search-menu">
+                            <li tabindex="0" class="active" onclick="zzkSearch(event, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                <div class="keyword-wrapper">
+                                    <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/search.svg" alt="搜索">
+                                    <div class="keyword"></div>
+                                </div>
+                                <span class="search-area">所有博客</span>
+                            </li>
+                                    <li tabindex="1" onclick="zzkBlogSearch(event, &#39;yuzly&#39;, document.getElementById(&#39;zzk_search_input&#39;).value)">
+                                        <div class="keyword-wrapper">
+                                            <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/search.svg" alt="搜索">
+                                            <div class="keyword"></div>
+                                        </div>
+                                        <span class="search-area">当前博客</span>
+                                    </li>
+                        </ul>
+                    </form>
+                </li>
+                <li id="navbar_login_status" class="navbar-list">
+                    <a class="navbar-user-info navbar-blog" href="https://i.cnblogs.com/EditPosts.aspx?opt=1" alt="写随笔" title="写随笔" style="display: none;">
+                        <img id="new_post_icon" class="navbar-icon" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/newpost.svg" alt="写随笔">
+                    </a>
+                    <a id="navblog-myblog-icon" class="navbar-user-info navbar-blog" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx" alt="我的博客" title="我的博客" style="display: none;">
+                        <img id="myblog_icon" class="navbar-icon" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/myblog.svg" alt="我的博客">
+                    </a>
+                    <a class="navbar-user-info navbar-message navbar-icon-wrapper" href="https://msg.cnblogs.com/" alt="短消息" title="短消息" style="display: none;">
+                        <img id="msg_icon" class="navbar-icon" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/message.svg" alt="短消息">
+                        <span id="msg_count" style="display: none"></span>
+                    </a>
+                    <a id="navbar_lite_mode_indicator" data-current-page="blog" style="display: none" href="javascript:void(0)" alt="简洁模式" title="简洁模式启用，您在访问他人博客时会使用简洁款皮肤展示">
+                        <img class="navbar-icon" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/lite-mode-on.svg" alt="简洁模式">
+                    </a>
+                    <div id="user_info" class="navbar-user-info dropdown" style="display: none;">
+                        <a class="dropdown-button" href="https://home.cnblogs.com/">
+                            <img id="user_icon" class="navbar-avatar" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/avatar-default.svg" alt="用户头像">
+                        </a>
+                        <div class="dropdown-menu">
+                            <a id="navblog-myblog-text" href="https://passport.cnblogs.com/GetBlogApplyStatus.aspx">我的博客</a>
+                            <a href="https://home.cnblogs.com/">我的园子</a>
+                            <a href="https://account.cnblogs.com/settings/account">账号设置</a>
+                            <a href="javascript:void(0)" id="navbar_lite_mode_toggle" title="简洁模式会使用简洁款皮肤显示所有博客">
+    简洁模式 <img id="navbar_lite_mode_on" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/lite-mode-check.svg" class="hide" style="display: none;"><span id="navbar_lite_mode_spinner" class="hide">...</span>
+</a>
+                            <a href="javascript:void(0)" onclick="account.logout();">退出登录</a>
+                        </div>
+                    </div>
+                    <a class="navbar-anonymous" href="https://account.cnblogs.com/signup" style="display: inline;">注册</a>
+                    <a class="navbar-anonymous" href="javascript:void(0);" onclick="account.login()" style="display: inline;">登录</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+
+    <!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/yuzly/"><img id="blogLogo" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/logo.gif" alt="返回主页"></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/yuzly">雨中落叶</a>
+</h1>
+<h2>你疯狂的爱上了成功的状态，却不曾想到梦想实现的背后，从不像你看到的那样简单。</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/yuzly/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/%E9%9B%A8%E4%B8%AD%E8%90%BD%E5%8F%B6">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/yuzly/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			<span id="stats_post_count">随笔 - 173&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 66&nbsp; </span>
+<span id="stats-total-view-count">阅读 - 
+<span title="总阅读数: 785484">
+78万</span></span>
+
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class="postTitle">
+                <a id="cb_post_title_url" class="postTitle2 vertical-middle" href="https://www.cnblogs.com/yuzly/p/10440718.html" title="发布于 2019-02-27 21:22">
+    <span role="heading" aria-level="2">powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口</span>
+    
+
+</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                <div id="cnblogs_post_body" class="blogpost-body blogpost-body-html">
+<p><span style="color: rgba(255, 0, 0, 1); font-size: 18pt">powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)</span>&nbsp;</p>
+<p><span style="color: rgba(255, 0, 0, 1); font-size: 15px"><span style="color: rgba(0, 0, 0, 1)">powershell脚本运行方式有两种,一种是powshell中运行,另一种是在cmd中(在某些情况下相当有用)</span></span></p>
+<p><span style="color: rgba(255, 0, 0, 1); font-size: 15px"><span style="color: rgba(0, 0, 0, 1)">powershell一般默认是禁止脚本运行,想要修改允许脚本运行,需要以管理员权限运行powershell,但有时候我们没有管理员权限,只有普通用户权限,这样就没有办法设置允许脚本运行,这时,cmd中运行脚本的优势就体现出来了。在cmd中运行脚本可以绕过powershell的限制。</span></span></p>
+<p><span style="font-size: 15px">(cmd)本地权限绕过执行：PowerShell.exe -ExecutionPolicy Bypass -File xxx.ps1</span></p>
+<p><span style="font-size: 15px">powershell:Get-ExecutionPolicy(查看当前脚本执行权限)&nbsp; &nbsp;&nbsp;Set-ExecutionPolicy(设置脚本执行权限)</span></p>
+<p><span style="font-size: 15px">一、使用自动化命令查看并统计在powershell有别名的cmd下的命令(cmd的命令可以在powershell下运行并且在powershell下有别名)</span></p>
+<p><span style="font-size: 15px">　1.代码如下:　</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="font-size: 15px">&lt;<span style="color: rgba(0, 128, 0, 1)">#
+</span><span style="color: rgba(0, 0, 0, 1)">使用自动化命令查看并统计在powershell有别名的cmd下的命令(cmd的命令可以在powershell下运行并且在powershell下有别名)
+</span><span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">&gt;</span>
+<span style="color: rgba(128, 0, 128, 1)">$cname</span>=cmd /c help  <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">$cmd /c help 获得的结果是一个数组对象</span>
+<span style="color: rgba(128, 0, 128, 1)">$len</span>=<span style="color: rgba(128, 0, 128, 1)">$cname</span>.count-3  <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">观察cmd /c help获得数据,去掉前两行和最后一行无用数据</span>
+<span style="color: rgba(128, 0, 128, 1)">$n</span>=0
+<span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">遍历数组</span>
+<span style="color: rgba(0, 0, 255, 1)">foreach</span> (<span style="color: rgba(128, 0, 128, 1)">$i</span> <span style="color: rgba(0, 0, 255, 1)">in</span> <span style="color: rgba(128, 0, 128, 1)">$cname</span>[1..<span style="color: rgba(128, 0, 128, 1)">$len</span><span style="color: rgba(0, 0, 0, 1)">])
+{
+    </span><span style="color: rgba(128, 0, 128, 1)">$sn</span>=<span style="color: rgba(128, 0, 128, 1)">$i</span>.split()[0]   <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">对每行的数据进行处理,并得到第一个值(命令名称)</span>
+    <span style="color: rgba(0, 0, 255, 1)">if</span> (<span style="color: rgba(128, 0, 128, 1)">$sn</span> <span style="color: rgba(0, 128, 128, 1)">-ne</span> <span style="color: rgba(128, 0, 0, 1)">""</span>)     <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">-ne 不等于</span>
+<span style="color: rgba(0, 0, 0, 1)">    {
+        </span><span style="color: rgba(128, 0, 128, 1)">$pcom</span>=get-alias <span style="color: rgba(128, 0, 128, 1)">$sn</span> -erroraction silentlycontinue   <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">获得每个命令的别名,当出现错误不显示,继续执行</span>
+        <span style="color: rgba(0, 0, 255, 1)">if</span> ($?) <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">返回上一条指令执行的结果,成功返回True,失败返回False</span>
+<span style="color: rgba(0, 0, 0, 1)">        {
+            </span><span style="color: rgba(128, 0, 128, 1)">$pcom</span>.displayname   <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">$pcom是一个对象</span>
+            <span style="color: rgba(128, 0, 128, 1)">$n</span>+=1   <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">计数</span>
+<span style="color: rgba(0, 0, 0, 1)">        }
+    }
+}
+write</span>-host <span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">$n Done</span><span style="color: rgba(128, 0, 0, 1)">"</span>    <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">write-host是写到控制台</span>
+pause   <span style="color: rgba(0, 128, 0, 1)">#</span><span style="color: rgba(0, 128, 0, 1)">暂停</span></span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-size: 15px">2.运行方式有两种,一种是powershell中运行，另一种在cmd中</span></p>
+<p><span style="font-size: 15px">　　2.1(cmd)本地权限绕过执行：PowerShell.exe -ExecutionPolicy Bypass -File xxx.ps1</span></p>
+<p><span style="font-size: 15px">　可以看到直接在cmd下执行powershell脚本,绕过了powershell对ps1脚本执行的限制(在某些情况下相当有用)　<span style="font-size: 18px"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/1592114-20190227205455369-165361925.jpg" alt="" class="medium-zoom-image"></span></span></p>
+<p><span style="font-size: 15px">2.2在powshell下执行</span></p>
+<p><span style="font-size: 15px">　　可以看到当前脚本的执行权限是限制,当想修改脚本的执行权限时,只能以管理员打开powershell,在某些情况下无法实现管理员修改,这时候只能通过cmd运行脚本了<span style="font-size: 18px"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/1592114-20190227205946832-1489543017.jpg" alt="" class="medium-zoom-image"></span></span></p>
+<p><span style="font-size: 15px">　　以管理员运行powerrshell之后,设置脚本的运行策略　<span style="font-size: 18px"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/1592114-20190227210641550-1859714310.jpg" alt="" class="medium-zoom-image"></span></span></p>
+<p><span style="font-size: 15px">3.设置完脚本的运行策略之后,就可以运行脚本了</span></p>
+<p><span style="font-size: 15px">　　<span style="font-size: 18px"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/1592114-20190227211017209-716467329.jpg" alt="" class="medium-zoom-image"></span></span></p>
+<p><span style="font-size: 15px">4.隐藏脚本到后台</span></p>
+<p><span style="font-size: 15px">　powershell&nbsp; -WindowStyle hidden -ExecutionPolicy Bypass -file xxx.ps1　</span></p>
+<p><span style="font-size: 15px">　运行完隐藏的命令之后,脚本窗口便消失了,只有后台能看到脚本正在运行</span></p>
+<p><span style="font-size: 15px">　<span style="font-size: 18px"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/1592114-20190227211709719-1239431443.jpg" alt="" class="medium-zoom-image"></span>　</span></p>
+<p><span style="font-size: 15px">5.想要退出隐藏,可以在任务管理器结束powershell进程</span></p>
+<p>&nbsp;</p>
+</div>
+<div class="clear"></div>
+<div id="blog_post_info_block" role="contentinfo">
+
+
+<div id="BlogPostCategory">
+    分类: 
+            <a href="https://www.cnblogs.com/yuzly/category/1404264.html" target="_blank">windows</a>
+</div>
+<div id="EntryTag">
+    标签: 
+            <a href="https://www.cnblogs.com/yuzly/tag/cmd%E7%BB%95%E8%BF%87powershell%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C%E9%99%90%E5%88%B6/">cmd绕过powershell脚本执行限制</a>
+,             <a href="https://www.cnblogs.com/yuzly/tag/cmd%E9%9A%90%E8%97%8Fpowershell%E8%84%9A%E6%9C%AC/">cmd隐藏powershell脚本</a>
+</div>
+    <div id="blog_post_info">
+<div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(10440718,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+        <a id="green_channel_follow" onclick="follow(&#39;8f2157b5-344c-402a-7ac5-08d67ec9170c&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_wechat" href="javascript:void(0);" onclick="shareManager.wechatShare()">微信分享</a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/yuzly/" target="_blank"><img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/20190121221342.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="https://home.cnblogs.com/u/yuzly/">雨中落叶</a>
+            <br>
+            <a href="https://home.cnblogs.com/u/yuzly/followers/">粉丝 - <span class="follower-count">187</span></a>
+            <a href="https://home.cnblogs.com/u/yuzly/followees/">关注 - <span class="following-count">4</span></a><br>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow" class="follow-tip">
+                <a href="javascript:void(0);" onclick="follow(&#39;8f2157b5-344c-402a-7ac5-08d67ec9170c&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(10440718,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(10440718,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+        <div id="vip_tip"><a class="tip" href="https://cnblogs.vip/" target="_blank">升级成为会员</a></div>
+</div>
+
+<script type="text/javascript">
+    currentDiggType = 0;
+</script>
+</div>
+    <div class="clear"></div>
+    <div id="post_next_prev">
+
+    <a href="https://www.cnblogs.com/yuzly/p/10439544.html" class="p_n_p_prefix">« </a> 上一篇：    <a href="https://www.cnblogs.com/yuzly/p/10439544.html" data-featured-image="" title="发布于 2019-02-26 20:37">windows创建域共享文件</a>
+    <br>
+    <a href="https://www.cnblogs.com/yuzly/p/10458997.html" class="p_n_p_prefix">» </a> 下一篇：    <a href="https://www.cnblogs.com/yuzly/p/10458997.html" data-featured-image="" title="发布于 2019-03-01 21:54">nmap参数原理抓包分析</a>
+
+</div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date" data-last-update-days="1748.4641250310844" data-date-created="BlogServer.Application.Dto.BlogPost.BlogPostDto" data-date-updated="2019-08-18 08:28" aria-expanded="false">2019-02-27 21:22</span>&nbsp;
+<a href="https://www.cnblogs.com/yuzly">雨中落叶</a>&nbsp;
+阅读(<span id="post_view_count">6077</span>)&nbsp;
+评论(<span id="post_comment_count">0</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=10440718" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(10440718);return false;">收藏</a>&nbsp;
+<a href="javascript:void(0)" onclick="reportManager.report({ currentUserId: &#39;&#39;, targetType: &#39;blogPost&#39;, targetId: &#39;10440718&#39;, targetLink: &#39;https://www.cnblogs.com/yuzly/p/10440718.html&#39;, title: &#39;powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口&#39; })">举报</a>
+</div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script>
+    var cb_entryId = 10440718, cb_entryCreatedDate = '2019-02-27 21:22', cb_postType = 1, cb_postTitle = 'powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口';
+    var allowComments = true, cb_blogId = 489494, cb_blogApp = 'yuzly', cb_blogUserGuid = '8f2157b5-344c-402a-7ac5-08d67ec9170c';
+    mermaidRender.render()
+    markdown_highlight()
+    zoomManager.apply("#cnblogs_post_body img:not(.code_img_closed):not(.code_img_opened)");    
+</script>
+<a id="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav">
+            <a class="comment-nav-left forpc" href="https://cnblogs.vip/" target="_blank">会员力量，点亮园子希望</a>
+        <div class="comment-nav-right">
+            <span id="span_refresh_tips"></span><a href="https://www.cnblogs.com/yuzly/p/10440718.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/yuzly/p/10440718.html#top">返回顶部</a>
+        </div>
+    </div>
+    <div id="comment_form_container"><div class="login_tips">
+    登录后才能查看或发表评论，立即 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return account.login(&#39;!comments&#39;);">登录</a> 或者
+    <a href="https://www.cnblogs.com/">逛逛</a> 博客园首页
+</div>
+</div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+        <div id="cnblogs_ch"><a href="https://www.cnblogs.com/cmt/p/18204310" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-阿里云-征文&#39;})">【推荐】寻找热爱技术创作的你，参与有奖征文，赢面试绿通资格</a><br><a href="https://www.finclip.com/?channel=cnblog2024" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-凡泰极客&#39;})">【推荐】凡泰极客：跨越技术“鸿”沟，小程序一键生成鸿蒙App</a><br><a href="https://www.cnblogs.com/sanshi/p/18186007" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-三生石上&#39;})">【推荐】三生石上：ASP.NET Core中运行WebForms业务代码</a><br><a href="https://cnblogs.vip/buy" target="_blank" onclick="gtag(&#39;event&#39;, &#39;click&#39;, {&#39;event_category&#39;: &#39;ad&#39;, &#39;event_label&#39;: &#39;T2-博客园-会员&#39;})">【推荐】会员力量，点亮园子希望，期待您升级成为园子会员</a><br></div>
+    <div id="opt_under_post"></div>
+        <div id="cnblogs_c1" class="under-post-card">
+            <a href="https://www.cnblogs.com/cmt/p/18219378" rel="nofollow" target="_blank" onclick="countCreativeClicks(&#39;C1-博客园-T恤&#39;)">
+                <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/35695-20240529225347158-1507288531.jpg" onload="countCreativeImpressions(&#39;C1-博客园-T恤&#39;)" alt="">
+                <span id="c1_impression" style="display:none"></span>
+            </a>
+        </div>
+    <div id="under_post_card1"><div class="under-post-card">
+<b>编辑推荐：</b>
+<br>
+
+· <a href="https://www.cnblogs.com/anywherego/p/18221943" target="_blank">Android 启动过程 - 万字长文(Android14)</a>
+    <br>
+· <a href="https://www.cnblogs.com/HelloQLQ/p/18212503" target="_blank">我对微服务架构的简单理解</a>
+    <br>
+· <a href="https://www.cnblogs.com/youzhibing/p/18212569" target="_blank">异构数据源同步之数据同步：datax 再改造，开始触及源码</a>
+    <br>
+· <a href="https://www.cnblogs.com/apocelipes/p/18214658" target="_blank">性能优化陷阱之 hash 真的比 strcmp 快吗</a>
+    <br>
+· <a href="https://www.cnblogs.com/tcjiaan/p/18212730" target="_blank">「ESP32」制作 Wi-fi 音箱（HTTP + I2S 协议）</a>
+    <br>
+</div></div>
+    <div id="under_post_card2"><div class="itnews under-post-card">
+    <b>阅读排行：</b>
+    <br>
+ ·          <a href="https://www.cnblogs.com/cmt/p/18219378" target="_blank">「废话少说，放码过来」：博客园2024夏季T恤上架预售</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/royzshare/p/18223667" target="_blank">程序员转型正当时, 35+开启第二职业</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/mangod/p/18223923" target="_blank">从大龄程序员现状聊聊出路</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/MeteorSeed/p/18221465" target="_blank">【译】使用 .NET Aspire 和 Visual Studio 开发云原生应用</a>
+        <br>
+ ·          <a href="https://www.cnblogs.com/doudouyoutang/p/18224342" target="_blank">大龄程序员思考</a>
+        <br>
+</div></div>
+    <div id="HistoryToday" class="under-post-card"></div>
+    <script type="text/javascript">
+        var commentManager = new blogCommentManager();
+        commentManager.renderComments(0);
+        fixPostBody();
+        window.footnoteTipManager.generateFootnoteTips();
+
+            window.tocManager.displayDisableTocTips = false;
+            window.tocManager.generateToc();
+            
+                setTimeout(function() { countViews(cb_blogId, cb_entryId); }, 50);
+            
+            deliverT2();
+            deliverC1C2();
+            loadNewsAndKb();
+            
+                LoadPostCategoriesTags(cb_blogId, cb_entryId);
+            
+            LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+            GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+            loadOptUnderPost();
+            GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+                </script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+	<div id="sideBar">
+		<div id="sideBarMain">
+			<div id="sidebar_news" class="newsItem">
+    <h3 class="catListTitle">公告</h3>
+<div id="blog-news">    
+    <div id="sidebar_news_content">
+<div id="profile_block">
+    昵称：
+    <a href="https://home.cnblogs.com/u/yuzly/">
+        雨中落叶
+    </a>
+    <br>
+    园龄：
+    <a href="https://home.cnblogs.com/u/yuzly/" title="入园时间：2019-01-21">
+        5年4个月
+    </a>
+    <br>
+    粉丝：
+    <a class="follower-count" href="https://home.cnblogs.com/u/yuzly/followers/">
+        187
+    </a>
+    <br>
+    关注：
+    <a class="folowing-count" href="https://home.cnblogs.com/u/yuzly/followees/">
+        4
+    </a>
+    <div id="p_b_follow" class="follow-tip">
+<a href="javascript:void(0)" onclick="follow(&#39;8f2157b5-344c-402a-7ac5-08d67ec9170c&#39;)">+加关注</a></div>
+    <script>getFollowStatus('8f2157b5-344c-402a-7ac5-08d67ec9170c');</script>
+</div>
+</div>
+</div>
+<script>loadBlogNews();</script>
+
+ 
+</div>
+<div id="sidebar_c3"></div>
+			<div id="blog-calendar" style="">
+
+<table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar" border="0">
+    <tbody>
+        <tr>
+            <td colspan="7">
+                <table class="CalTitle" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <td class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2024/04/30&#39;); return false;">&lt;</a>
+                            </td>
+                            <td align="center">2024年5月</td>
+                            <td align="right" class="CalNextPrev">
+                                <a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2024/06/30&#39;); return false;">&gt;</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    <tr>
+        <th class="CalDayHeader" align="center" abbr="日" scope="col">日</th>
+        <th class="CalDayHeader" align="center" abbr="一" scope="col">一</th>
+        <th class="CalDayHeader" align="center" abbr="二" scope="col">二</th>
+        <th class="CalDayHeader" align="center" abbr="三" scope="col">三</th>
+        <th class="CalDayHeader" align="center" abbr="四" scope="col">四</th>
+        <th class="CalDayHeader" align="center" abbr="五" scope="col">五</th>
+        <th class="CalDayHeader" align="center" abbr="六" scope="col">六</th>
+    </tr>
+            <tr>
+                            <td class="CalOtherMonthDay" align="center">28</td>
+                            <td class="CalOtherMonthDay" align="center">29</td>
+                            <td class="CalOtherMonthDay" align="center">30</td>
+                        <td class="" align="center">
+                            1
+                        </td>
+                        <td class="" align="center">
+                            2
+                        </td>
+                        <td class="" align="center">
+                            3
+                        </td>
+                    <td class="CalWeekendDay" align="center">
+                        4
+                    </td>
+            </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            5
+                        </td>
+                            <td class="" align="center">
+                                6
+                            </td>
+                            <td class="" align="center">
+                                7
+                            </td>
+                            <td class="" align="center">
+                                8
+                            </td>
+                            <td class="" align="center">
+                                9
+                            </td>
+                            <td class="" align="center">
+                                10
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            11
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            12
+                        </td>
+                            <td class="" align="center">
+                                13
+                            </td>
+                            <td class="" align="center">
+                                14
+                            </td>
+                            <td class="" align="center">
+                                15
+                            </td>
+                            <td class="" align="center">
+                                16
+                            </td>
+                            <td class="" align="center">
+                                17
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            18
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            19
+                        </td>
+                            <td class="" align="center">
+                                20
+                            </td>
+                            <td class="" align="center">
+                                21
+                            </td>
+                            <td class="" align="center">
+                                22
+                            </td>
+                            <td class="" align="center">
+                                23
+                            </td>
+                            <td class="" align="center">
+                                24
+                            </td>
+                        <td class="CalWeekendDay" align="center">
+                            25
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalWeekendDay" align="center">
+                            26
+                        </td>
+                            <td class="" align="center">
+                                27
+                            </td>
+                            <td class="" align="center">
+                                28
+                            </td>
+                            <td class="" align="center">
+                                29
+                            </td>
+                            <td class="" align="center">
+                                30
+                            </td>
+                            <td class="CalTodayDay" align="center">
+                                31
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            1
+                        </td>
+                </tr>
+                <tr>
+                        <td class="CalOtherMonthDay" align="center">
+                            2
+                        </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                3
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                4
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                5
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                6
+                            </td>
+                            <td class="CalOtherMonthDay" align="center">
+                                7
+                            </td>
+                        <td class="CalOtherMonthDay" align="center">
+                            8
+                        </td>
+                </tr>
+    </tbody>
+</table></div><script>loadBlogDefaultCalendar();</script>			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><!-- 搜索 -->
+<div id="sidebar_search" class="sidebar-block">
+    <div class="mySearch my-search">
+        <h3 class="catListTitle">搜索</h3>
+        <div id="sidebar_search_box">
+            <div id="widget_my_zzk" class="div_my_zzk">
+                <input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- 常用链接 -->
+<div id="sidebar_shortcut" class="sidebar-block"><div class="catListLink">
+<h3 class="catListTitle">
+常用链接
+</h3>
+<ul>
+    <li><a href="https://www.cnblogs.com/yuzly/p/" title="我的博客的随笔列表">我的随笔</a></li>
+<li><a href="https://www.cnblogs.com/yuzly/MyComments.html" title="我的发表过的评论列表">我的评论</a></li>
+<li><a href="https://www.cnblogs.com/yuzly/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li>
+<li><a href="https://www.cnblogs.com/yuzly/comments" title="我的博客的评论列表">最新评论</a></li>
+<li><a href="https://www.cnblogs.com/yuzly/tag/" title="我的博客的标签列表">我的标签</a></li>
+
+</ul>
+</div>
+
+</div>
+
+<!-- 最新随笔 -->
+<div id="sidebar_recentposts" class="sidebar-block"><div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+    <ul>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13832084.html">1.VMware vCenter任意文件读取漏洞</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13754309.html">2.（CVE-2019-8449）Atlassian Jira 信息泄露漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13753615.html">3.（CVE-2019-8451）Atlassian Jira 未授权SSRF漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13723173.html">4.Fastadmin前台Getshell漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13690737.html">5.通达OA 11.7 后台sql注入getshell漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13689862.html">6.ThinkAdminV6未授权列目录、任意文件读取漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13675224.html">7.用友GRP-u8 注入漏洞复现</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13677238.html">8.泛微OA云桥未授权任意文件读取</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13673760.html">9.天融信TopApp-LB 负载均衡系统漏洞总结(历史漏洞)</a>
+
+                </li>
+                <li>
+                    
+<a href="https://www.cnblogs.com/yuzly/p/13608532.html">10.通达OA 11.5 sql注入漏洞复现</a>
+
+                </li>
+    </ul>
+</div>
+
+</div>
+
+<!-- 我的标签 -->
+<div id="sidebar_toptags" class="sidebar-block"><div class="catListTag">
+    <h3 class="catListTitle"><a href="https://www.cnblogs.com/yuzly/tag/" class="sidebar-card-title-a">我的标签</a></h3>
+<ul>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/DVWA-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">DVWA-文件上传学习笔记<span class="tag-count">(2)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/XMLDecoder%20%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96_CVE-20/">XMLDecoder 反序列化_CVE-20<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/wls-wsat%26amp%3B%2339/">wls-wsat&amp;#39<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/windows%E9%98%B2%E7%81%AB%E5%A2%99%E5%AE%9E%E9%AA%8C-%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E4%BB%A5%E5%8F%8A%E7%A6%81%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8A%E7%BD%91/">windows防火墙实验-命令行设置远程桌面连接以及禁止浏览器上网<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/windows%E5%88%9B%E5%BB%BA%E5%9F%9F%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/">windows创建域共享文件<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/windows%E6%9C%AC%E5%9C%B0%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5%E5%AE%9E%E9%AA%8C-%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E9%94%81%E5%AE%9A%E8%B4%A6%E6%88%B7/">windows本地安全策略实验-远程桌面连接锁定账户<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/windows%20RDP%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C_CVE-2019-0708%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">windows RDP远程代码执行_CVE-2019-0708漏洞复现<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/Windows%20CVE-2019-0708%20%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">Windows CVE-2019-0708 远程桌面代码执行漏洞复现<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/WebShell%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E6%BA%AF%E6%BA%90%28%E4%B8%80%29/">WebShell代码分析溯源(一)<span class="tag-count">(1)</span></a>
+        </li>
+        <li>
+            <a href="https://www.cnblogs.com/yuzly/tag/WebShell%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90%E6%BA%AF%E6%BA%90%28%E4%BA%94%29/">WebShell代码分析溯源(五)<span class="tag-count">(1)</span></a>
+        </li>
+    <li>
+        <a href="https://www.cnblogs.com/yuzly/tag/">更多</a>
+    </li>
+
+</ul>
+</div>
+
+</div>
+
+<!-- 积分与排名 -->
+
+
+<!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
+<div id="sidebar_categories">
+
+    <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+        <h3 class="catListTitle">
+            
+    <a class="sidebar-card-title-a" href="https://www.cnblogs.com/yuzly/post-categories">随笔分类</a>
+
+
+
+        </h3>
+
+        <ul>
+
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1416995.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">linux(19)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1426455.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">Mysql(2)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1388385.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">python(20)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1436234.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">web渗透测试基础(14)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1404264.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">windows(18)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1573740.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">各种webshell分析集合(11)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1853425.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--CMS框架-thinkphp(4)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1522938.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--CMS漏洞(13)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1487839.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--linux环境 (2)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1853422.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现-OA集合(7)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1466605.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--web中间件漏洞(27)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1463507.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--windows环境(9)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1492565.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现--其他(7)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1831909.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">漏洞复现-网络设备、安全设备(3)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1389138.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">网络(2)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="false" style="display: none">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1553585.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">应急响应&amp;安全加固(3)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="false" style="display: none">
+                    
+<a href="https://www.cnblogs.com/yuzly/category/1457089.html" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">综合渗透靶机练习(18)</a>
+ 
+                </li>                
+            <li>
+                <a href="javascript:void(0)" onclick="sideColumnManager.loadMore(this)">更多</a>
+            </li>
+        </ul>
+
+
+    </div>    
+    <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+        <h3 class="catListTitle">
+            
+随笔档案
+
+
+        </h3>
+
+        <ul>
+
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2020/10" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年10月(1)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2020/09" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年9月(13)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2020/08" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2020年8月(1)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/11" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年11月(9)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/10" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年10月(8)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/09" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年9月(6)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/08" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年8月(16)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/07" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年7月(19)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/06" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年6月(9)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/05" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年5月(23)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/04" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年4月(13)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/03" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年3月(29)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/02" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年2月(9)</a>
+ 
+                </li>                
+                <li data-category-list-item-visible="true" style="display: block">
+                    
+<a href="https://www.cnblogs.com/yuzly/p/archive/2019/01" style="--cnb-category-item-link-indent-size: calc(0 * 1em)" class="category-item-link" rel="" target="">2019年1月(17)</a>
+ 
+                </li>                
+            
+        </ul>
+
+
+    </div>    
+</div>
+
+<!-- 最新评论 -->
+<!-- 阅读排行榜 -->
+<div id="sidebar_topviewedposts" class="sidebar-block"><div class="catListView">
+    <h3 class="catListTitle">
+        <a href="https://www.cnblogs.com/yuzly/most-viewed" class="sidebar-card-title-a">
+    阅读排行榜
+</a>
+
+    </h3>
+    <div id="TopViewPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/10725942.html">
+                            1. DVWA-SQL注入(36292)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/10581688.html">
+                            2. Linux DNS服务配置(34519)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/10480438.html">
+                            3. SMB协议原理抓包分析(24016)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/10305263.html">
+                            4. python字符串处理以及字符串格式化(23270)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/11208742.html">
+                            5. nginx解析漏洞复现(19935)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div></div>
+
+<!-- 评论排行榜 -->
+<div id="sidebar_topcommentedposts" class="sidebar-block"><div class="catListFeedback">
+    <h3 class="catListTitle">
+        <a href="https://www.cnblogs.com/yuzly/most-commented" class="sidebar-card-title-a">评论排行榜</a>
+
+    </h3>
+    <div id="TopFeedbackPostsBlock">
+        <ul style="word-break:break-all">
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/10973319.html">
+                            1. kali渗透综合靶机(十五)--Breach-1.0靶机(6)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/11074555.html">
+                            2. DHCP命令执行CVE-2018-1111漏洞复现(5)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/11565997.html">
+                            3. Phpstudy被暴存在隐藏后门-检查方法(4)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/11255609.html">
+                            4. jenkins未授权访问漏洞(3)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cnblogs.com/yuzly/p/11797485.html">
+                            5. ThinkCMF X1.6.0-X2.2.3框架任意内容包含漏洞分析复现(2)
+                        </a>
+                    </li>
+        </ul>
+    </div>
+</div></div>
+
+<!-- 推荐排行榜 -->
+<div id="sidebar_topdiggedposts" class="sidebar-block">
+<div id="topdigg_posts_wrap">
+    <div class="catListView">
+        <h3 class="catListTitle">
+            <a href="https://www.cnblogs.com/yuzly/most-liked" class="sidebar-card-title-a">推荐排行榜</a>
+
+        </h3>
+        <div id="TopDiggPostsBlock">
+            <ul style="word-break: break-all">
+                        <li>
+                            <a href="https://www.cnblogs.com/yuzly/p/10480438.html">
+                                1. SMB协议原理抓包分析(6)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/yuzly/p/11663822.html">
+                                2. Redis未授权访问漏洞复现(5)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/yuzly/p/10505365.html">
+                                3. powersploit的用法(5)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/yuzly/p/11208742.html">
+                                4. nginx解析漏洞复现(3)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.cnblogs.com/yuzly/p/10800861.html">
+                                5. kali渗透综合靶机(一)--Lazysysadmin靶机(3)
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+</div></div><div id="sidebar_recentcomments" class="sidebar-block"><div class="catListComment">
+<h3 class="catListTitle"><a href="https://www.cnblogs.com/yuzly/comments" class="sidebar-card-title-a">最新评论</a></h3>
+    <div class="RecentCommentBlock">
+        <ul>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/yuzly/p/11423384.html">1. Re:Beescms_v4.0 sql注入漏洞分析</a></li>
+                <li class="recent_comment_body">@那年十八岁 最好的语言[狗头 ]...</li>
+                <li class="recent_comment_author">--flag在哪里</li>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/yuzly/p/10459382.html">2. Re:windows防火墙实验-命令行设置远程桌面连接以及禁止浏览器上网</a></li>
+                <li class="recent_comment_body"><p>大佬，请教如何通过端口禁用浏览器，文中只提了一嘴，在线等！</p>
+</li>
+                <li class="recent_comment_author">--鲨鱼2022</li>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/yuzly/p/11797485.html">3. Re:ThinkCMF X1.6.0-X2.2.3框架任意内容包含漏洞分析复现</a></li>
+                <li class="recent_comment_body"><p>学到了大佬写的太棒了....萌新路过</p>
+</li>
+                <li class="recent_comment_author">--wjl110</li>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/yuzly/p/11208742.html">4. Re:nginx解析漏洞复现</a></li>
+                <li class="recent_comment_body"><p>环境镜像叫啥呀大佬</p>
+</li>
+                <li class="recent_comment_author">--kakeruj</li>
+                <li class="recent_comment_title"><a href="https://www.cnblogs.com/yuzly/p/11332644.html">5. Re:DedeCMS 5.7 sp1远程文件包含漏洞(CVE-2015-4553)</a></li>
+                <li class="recent_comment_body"><p>你好！请问有下载链接吗？</p>
+</li>
+                <li class="recent_comment_author">--胖三斤1</li>
+        </ul>
+    </div>
+</div>
+
+</div>
+
+
+</div>
+                    <script>loadBlogSideColumn();</script>
+			</div>			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright © 2024 雨中落叶
+<br><span id="poweredby">Powered by .NET 8.0 on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+
+    
+
+    <input type="hidden" id="antiforgery_token" value="CfDJ8ONv0caE5GtEh3YJ5j088knqxnyua4gAQRa1CesQnYYyZ0KjfLjZrHXaMtHboIw0OvcJa-QEmn3IyENCA1WobKBO_lRu4mjl31L5X3XzVOiVr2u5aqcg_VugYrv6WuSqHfuGrQcE066asXp_zg7dVkE">
+    <script async="" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/js"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-M95P3TTWJZ');
+</script>
+<script defer="" src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/hm.js.download"></script>
+
+
+<div style="z-index: 998; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); display: none; flex-direction: column; align-items: center; justify-content: center">
+<div style="background: #fff;padding: 30px; margin: 30px; border-radius: 16px;">
+  <div style="width: 200px; height: 200px; background: rgba(255, 255, 255, 0.8); position: absolute; top: -100px; right: -100px; border-radius: 100px"></div>
+  <div style="text-align: center; font-size: 18px; margin-bottom: 10px;">点击右上角即可分享</div>
+  <img src="./powershell脚本执行绕过powershell下脚本执行限制(cmd下执行)以及在cmd下隐藏脚本窗口 - 雨中落叶 - 博客园_files/35695-20230906145857937-1471873834.gif" alt="微信分享提示">
+</div>   
+    </div></body></html>
